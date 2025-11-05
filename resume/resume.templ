@@ -1,0 +1,41 @@
+package resume
+
+templ Page(content []string) {
+	<!DOCTYPE html>
+	<html lang="en">
+		<head>
+			<meta charset="UTF-8"/>
+			<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+			<link rel="stylesheet" href="/static/index.css"/>
+			<title>Milijan Mosić - Software Engineer</title>
+			<meta name="author" content="Milijan Mosić"/>
+			<meta name="description" content="Chi + Templ"/>
+		</head>
+		<body>
+			<div id="app">
+				<canvas id="canvas"></canvas>
+			</div>
+			<div class="content">
+				<section class="info">
+					@templ.Raw(content[0])
+				</section>
+				<section class="skills">
+					@templ.Raw(content[1])
+				</section>
+				<section class="experience">
+					@templ.Raw(content[2])
+				</section>
+				<section class="education">
+					@templ.Raw(content[3])
+				</section>
+				<section class="projects">
+					@templ.Raw(content[4])
+				</section>
+				// <section class="certification">
+				// 	@templ.Raw(content[5])
+				// </section>
+			</div>
+			<script type="module" src="/static/index.js" defer></script>
+		</body>
+	</html>
+}
