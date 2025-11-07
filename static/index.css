@@ -1,7 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"); /* FIXME: */
 
-html,
-body,
 #app {
   margin: 0rem;
   width: 100%;
@@ -13,18 +11,6 @@ body {
   font-weight: 400;
   font-style: normal;
   font-size: 16px;
-}
-
-body strong {
-  font-family: "Lato", sans-serif;
-  font-weight: 700;
-  font-style: normal;
-}
-
-body em {
-  font-family: "Lato", sans-serif;
-  font-weight: 300;
-  font-style: italic;
 }
 
 #app {
@@ -42,51 +28,12 @@ body em {
   touch-action: none;
 }
 
-.content {
-  z-index: 10;
-  width: 100%;
-  height: 100%;
-}
-
-h1 {
-  font-size: 2rem;
-  margin: 0rem;
-}
-
-h2 {
-  font-size: 1.5rem;
-  margin: 0rem;
-  margin-top: 1rem;
-}
-
-h3 {
-  font-size: 1.25rem;
-  margin: 0rem;
-  margin-top: 1.5rem;
-}
-
-p {
-  margin: 0rem;
-}
-
-a:link,
-a:visited {
-  color: lightskyblue;
-  text-decoration: underline;
-}
-
-hr {
-  margin: 0rem;
-  margin-bottom: 1.5rem;
-  background-color: black;
-  color: black;
-}
-
 .glass-card {
   outline: none;
   overflow: hidden;
   border-radius: 2rem;
   padding: 1rem;
+  margin: 1rem;
   border: 1px solid rgba(255, 255, 255, 0.3);
   background: linear-gradient(
     135deg,
