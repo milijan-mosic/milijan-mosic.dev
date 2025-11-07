@@ -16,29 +16,29 @@ import (
 )
 
 func main() {
-	r := chi.NewRouter()
+	app := chi.NewRouter()
 
-	r.Use(middleware.RealIP)
-	r.Use(middleware.RequestID)
-	r.Use(middleware.Logger)
-	r.Use(middleware.AllowContentEncoding("gzip"))
-	r.Use(middleware.AllowContentType("application/json", "text/html", "text/javascript", "text/css"))
-	r.Use(middleware.Compress(5, "application/json", "text/html", "text/javascript", "text/css"))
-	r.Use(middleware.CleanPath)
-	r.Use(httprate.LimitByIP(100, 1*time.Minute))
-	r.Use(middleware.Timeout(5 * time.Second))
-	r.Use(middleware.Heartbeat("/health"))
-	r.Use(middleware.Recoverer)
+	app.Use(middleware.RealIP)
+	app.Use(middleware.RequestID)
+	app.Use(middleware.Logger)
+	app.Use(middleware.AllowContentEncoding("gzip"))
+	app.Use(middleware.AllowContentType("application/json", "text/html", "text/javascript", "text/css"))
+	app.Use(middleware.Compress(5, "application/json", "text/html", "text/javascript", "text/css"))
+	app.Use(middleware.CleanPath)
+	app.Use(httprate.LimitByIP(100, 1*time.Minute))
+	app.Use(middleware.Timeout(5 * time.Second))
+	app.Use(middleware.Heartbeat("/health"))
+	app.Use(middleware.Recoverer)
 
-	r.Get("/", pages.Homepage)
+	app.Get("/", pages.Homepage)
 
 	workDir, _ := os.Getwd()
 	filesDir := http.Dir(filepath.Join(workDir, "static"))
-	utils.FileServer(r, "/static", filesDir)
+	utils.FileServer(app, "/static", filesDir)
 
 	port := "8080"
 	fmt.Printf("Listening on port: %s\n", port)
-	err := http.ListenAndServe(":"+port, r)
+	err := http.ListenAndServe(":"+port, app)
 	if err != nil {
 		panic(err)
 	}
