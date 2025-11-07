@@ -1,6 +1,7 @@
-package resume
+package pages
 
-templ Page(content []string) {
+
+templ Index() {
 	<!DOCTYPE html>
 	<html lang="en">
 		<head>
@@ -15,25 +16,16 @@ templ Page(content []string) {
 			<div id="app">
 				<canvas id="canvas"></canvas>
 			</div>
-			<div class="content">
-				<section class="info">
-					@templ.Raw(content[0])
+
+			<div class="glass-card">
+				<section class="glass-card">
+					@Base()
 				</section>
-				<section class="skills">
-					@templ.Raw(content[1])
+
+				<section class="glass-card">
+					@Base()
+					// @templ.Raw(content[0])
 				</section>
-				<section class="experience">
-					@templ.Raw(content[2])
-				</section>
-				<section class="education">
-					@templ.Raw(content[3])
-				</section>
-				<section class="projects">
-					@templ.Raw(content[4])
-				</section>
-				// <section class="certification">
-				// 	@templ.Raw(content[5])
-				// </section>
 			</div>
 			<script type="module" src="/static/index.js" defer></script>
 		</body>
