@@ -9,8 +9,9 @@ templ Index() {
 		<head>
 			<meta charset="UTF-8"/>
 			<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-			<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-			<link rel="stylesheet" href="/static/index.css"/>
+			
+			<link href="/static/index.css" rel="stylesheet" />
+
 			<title>Milijan Mosić - Software Engineer</title>
 			<meta name="author" content="Milijan Mosić"/>
 			<meta name="description" content="Chi + Templ + CSS"/>
@@ -21,7 +22,9 @@ templ Index() {
 			</div>
 
 			@Base()
-			<script type="module" src="/static/index.js" defer></script>
+			<script defer type="module" src="/static/index.js"></script>
+			<script defer src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+			<script defer src="https://kit.fontawesome.com/59b089c6a9.js" crossorigin="anonymous"></script>
 		</body>
 	</html>
 }

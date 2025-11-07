@@ -32,8 +32,6 @@ body {
   outline: none;
   overflow: hidden;
   border-radius: 2rem;
-  padding: 1rem;
-  margin: 1rem;
   border: 1px solid rgba(255, 255, 255, 0.3);
   background: linear-gradient(
     135deg,
