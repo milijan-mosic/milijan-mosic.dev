@@ -29,7 +29,7 @@ func Footer() templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div class=\"flex justify-center\"><a href=\"#\" class=\"glass-card w-12 h-12 m-1 hover:bg-white text-2xl flex items-center justify-center\"><i class=\"fa-solid fa-location-dot\"></i></a> <a href=\"#\" class=\"glass-card w-12 h-12 m-1 hover:bg-white text-2xl flex items-center justify-center\"><i class=\"fa-solid fa-envelope\"></i></a> <a href=\"#\" class=\"glass-card w-12 h-12 m-1 hover:bg-white text-2xl flex items-center justify-center\"><i class=\"fa-brands fa-github\"></i></a> <a href=\"#\" class=\"glass-card w-12 h-12 m-1 hover:bg-white text-2xl flex items-center justify-center\"><i class=\"fa-brands fa-linkedin\"></i></a></div>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<section class=\"flex justify-center\"><a href=\"#\" class=\"glass-card w-12 h-12 m-1 hover:bg-white text-2xl flex items-center justify-center\"><i class=\"fa-solid fa-location-dot\"></i></a> <a href=\"#\" class=\"glass-card w-12 h-12 m-1 hover:bg-white text-2xl flex items-center justify-center\"><i class=\"fa-solid fa-envelope\"></i></a> <a href=\"#\" class=\"glass-card w-12 h-12 m-1 hover:bg-white text-2xl flex items-center justify-center\"><i class=\"fa-brands fa-github\"></i></a> <a href=\"#\" class=\"glass-card w-12 h-12 m-1 hover:bg-white text-2xl flex items-center justify-center\"><i class=\"fa-brands fa-linkedin\"></i></a></section>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
