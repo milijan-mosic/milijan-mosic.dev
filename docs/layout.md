@@ -11,25 +11,29 @@ Hi, I’m Milijan — Software Engineer & Backend Specialist
 
 I help companies build reliable, scalable, and modern web applications using Go, Python, and cloud-native technologies.
 
-[Hire Me]   [See My Work]
+[Hire Me] [See My Work]
 
 # Services
 
 ### 🎨 Web Development
+
 Modern, responsive, and fast front-end applications.
 Building fast, secure, and maintainable APIs, microservices, and real-time systems.
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vitae urna sed eros fermentum.
 
 ### ⚙️ Cloud Development
+
 CI/CD pipelines, Docker, Kubernetes, AWS infrastructure.
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in justo vel lorem maximus semper.
 
 ### Desktop App Development
+
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer dictum velit quis ligula viverra maximus.
 
 ### Mobile App Development
+
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer dictum velit quis ligula viverra maximus.
 
 # Tech Stack
@@ -61,6 +65,7 @@ Outcome / metrics (if possible) — e.g. “reduced latency by 40%”, “served
 ```
 
 ### 🛰️ Realtime Routing Service
+
 High-performance routing engine integrating OSRM, Redis caching, and Go microservices.
 
 - Reduced latency by 40%
@@ -71,6 +76,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus pharetra orci v
 ---
 
 ### 📦 Cloud Storage Platform (Decentralized Architecture)
+
 Secure data distribution with encryption, event pipelines, and distributed nodes.
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam mattis pretium magna.
@@ -78,11 +84,19 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam mattis pretium ma
 ---
 
 ### ⚔️ Tower Defense Game (Go + Raylib)
+
 Custom engines, pathfinding algorithms, and dynamic map rendering.
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed mauris ipsum.
 
 [Let's Work]
+
+CyberPopUp
+X (Swiss Insurance Leads)
+RATS
+Alloqis
+Aleks Bengin
+Tattoo RMX (Solaja)
 
 # Testimonials
 
@@ -96,14 +110,17 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed mauris ipsum.
 # Pricing
 
 ### 🕒 Hourly Engagement
+
 €35–€55 / hour  
 Best for small tasks, feature development, or bug fixing.
 
 ### 📦 Fixed-Price Projects
+
 Starting from €1,200  
 Ideal for MVPs, prototypes, or clearly defined scope.
 
 ### 🤝 Part-Time or Long-Term Contract
+
 €2,000–€4,000 / month  
 For ongoing support, product development, and scaling infrastructure.
 
