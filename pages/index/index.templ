@@ -11,20 +11,23 @@ templ Index() {
 			<meta name="author" content="Milijan Mosić"/>
 			<meta name="description" content="Chi + Templ + Tailwind CSS"/>
 		</head>
+		
 		<body>
-			<div id="app">
-				<img src="/static/background.jpg" class="absolute w-screen h-screen"/>
-				<canvas id="canvas"></canvas>
-			</div>
-			@Base()
-			@AboutMe()
+			// <div class="fixed w-screen h-screen">
+			// 	<canvas id="canvas" class="fixed top-0 right-0 bottom-0 left-0 overflow-hidden touch-action-none"></canvas>
+			// </div>
+			<img src="/static/background.jpg" class="fixed w-screen h-screen top-0 object-cover object-[20%]" />
+
+			@Base() <!-- CTA -->
+			@AboutMe() <!-- CTA -->
 			@Services()
 			@Skills()
-			@Projects()
+			@Projects() <!-- CTA -->
 			@Testimonials()
-			// @Pricing()
-			@CTA()
-			@Footer()
+			@Pricing()
+			@CTA() <!-- CTA -->
+			@Footer() <!-- CTA -->
+
 			<script defer type="module" src="/static/index.js"></script>
 			<script defer src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 			<script defer src="https://kit.fontawesome.com/59b089c6a9.js" crossorigin="anonymous"></script>
