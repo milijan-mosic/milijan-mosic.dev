@@ -18,12 +18,12 @@ var allServices = []Service{
 templ Services() {
 	<section class="glass-card p-4 m-4">
 		for _, service := range allServices {
-			<div class="flex flex-col justify-center w-full m-4">
-				<div class="flex flex-col justify-center items-center">
-					<i class={ fmt.Sprintf("text-4x %s", service.Icon) }></i>
-					<h2 class="text-xl">{ service.Title }</h2>
+			<div class="flex flex-col items-center mb-8">
+				<div class="flex flex-col items-center">
+					<i class={ fmt.Sprintf("text-3xl %s", service.Icon) }></i>
+					<h2 class="text-xl mt-2">{ service.Title }</h2>
 				</div>
-				<div class="mt-8">
+				<div class="mt-4">
 					<p>{ service.Paragraph }</p>
 				</div>
 			</div>
