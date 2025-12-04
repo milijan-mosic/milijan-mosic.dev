@@ -13,76 +13,84 @@ var allProjects = []Project{
 		Name:         "Aleksandra Bengin",
 		Description:  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed mauris ipsum",
 		Technologies: []string{"React", "Python", "PostgreSQL"},
-		Role:         []string{"Frontend", "Backend"},
+		Role:         []string{"Design", "Develop"},
 		Thumbnail:    "/static/project.png",
 	},
 	Project{
 		Name:         "Alloqis",
 		Description:  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed mauris ipsum",
 		Technologies: []string{"React", "Python", "PostgreSQL"},
-		Role:         []string{"Frontend", "Backend"},
+		Role:         []string{"Design", "Develop"},
 		Thumbnail:    "/static/project.png",
 	},
 	Project{
 		Name:         "Recall Taxi",
 		Description:  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed mauris ipsum",
 		Technologies: []string{"React", "Python", "PostgreSQL"},
-		Role:         []string{"Frontend", "Backend"},
+		Role:         []string{"Design", "Develop"},
 		Thumbnail:    "/static/project.png",
 	},
 	Project{
 		Name:         "CyberPopUp",
 		Description:  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed mauris ipsum",
 		Technologies: []string{"React", "Python", "PostgreSQL"},
-		Role:         []string{"Frontend", "Backend"},
+		Role:         []string{"Design", "Develop"},
 		Thumbnail:    "/static/project.png",
 	},
 	Project{
 		Name:         "Swiss Insurance Leads",
 		Description:  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed mauris ipsum",
 		Technologies: []string{"React", "Python", "PostgreSQL"},
-		Role:         []string{"Frontend", "Backend"},
+		Role:         []string{"Design", "Develop"},
 		Thumbnail:    "/static/project.png",
 	},
 	Project{
 		Name:         "Milos Tattoo",
 		Description:  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed mauris ipsum",
 		Technologies: []string{"React", "Python", "PostgreSQL"},
-		Role:         []string{"Frontend", "Backend"},
+		Role:         []string{"Design", "Develop"},
 		Thumbnail:    "/static/project.png",
 	},
 }
 
 templ Projects() {
-	<section class="glass-card p-4 my-16 mx-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+	<section class="glass-card p-4 my-16 mx-4 flex flex-col items-center">
+		<h2 class="text-2xl font-bold mb-16 mt-4">Projects</h2>
+
 		for _, project := range allProjects {
-			<div class="flex flex-col items-center text-center bg-white/5 backdrop-blur-lg shadow-lg rounded-xl p-4 w-full transition">
+			<div class="flex flex-col items-center rounded-xl mb-16 bg-black/25">
 				<img
 					src={ project.Thumbnail }
 					alt={ project.Name }
-					class="w-full h-48 object-cover rounded-lg shadow-md mb-4"
+					class="w-full h-fit object-cover rounded-t-2xl bg-white shadow-md mb-4"
 				/>
-				<h2 class="text-2xl font-bold font-semibold mb-2">
+
+				<h2 class="text-2xl font-bold font-semibold mb-8">
 					{ project.Name }
 				</h2>
-				<p class="mb-4">
+				<p class="mb-8 p-4">
 					{ project.Description }
 				</p>
-				<div class="flex flex-wrap justify-center gap-2 my-2">
-					for _, tech := range project.Technologies {
-						<span class="px-3 py-1 text-xs rounded-full bg-blue-600/30 border border-blue-600/40">
-							{ tech }
+
+				<div class="flex flex-wrap justify-center gap-2 mb-4">
+					for _, role := range project.Role {
+						<span class="py-2 px-4 text-xs rounded-full bg-black/50 border-1 border-black">
+							{ role }
 						</span>
 					}
 				</div>
-				<div class="flex flex-wrap justify-center gap-2 mt-2">
-					for _, role := range project.Role {
-						<span class="px-3 py-1 text-xs rounded-full bg-purple-600/30 border border-purple-600/40">
-							{ role }
+				<div class="flex flex-wrap justify-center gap-2 mb-8">
+					for _, tech := range project.Technologies {
+						<span class="py-1 px-2 text-xs rounded-full border-1 border-white">
+							{ tech }
 						</span>
 					}
 				</div>
 			</div>
 		}
+
+		<a href="#contact-me" class="glass-card p-2 px-4 mb-4 hover:bg-white text-xl flex items-center justify-center shadow-xl">
+			Let's build something
+		</a>
 	</section>
 }
