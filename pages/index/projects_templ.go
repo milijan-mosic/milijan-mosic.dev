@@ -87,7 +87,7 @@ func Projects() templ.Component {
 			return templ_7745c5c3_Err
 		}
 		for _, project := range allProjects {
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "<div class=\"flex flex-col items-center rounded-xl mb-16 bg-black/25\"><img src=\"")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "<div class=\"flex flex-col items-center rounded-xl mb-16 bg-white/25\"><img src=\"")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -144,7 +144,7 @@ func Projects() templ.Component {
 				return templ_7745c5c3_Err
 			}
 			for _, role := range project.Role {
-				templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 7, "<span class=\"py-2 px-4 text-xs rounded-full bg-black/50 border-1 border-black\">")
+				templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 7, "<span class=\"py-2 px-4 text-xs rounded-full bg-white/50 border-1 border-white text-black\">")
 				if templ_7745c5c3_Err != nil {
 					return templ_7745c5c3_Err
 				}

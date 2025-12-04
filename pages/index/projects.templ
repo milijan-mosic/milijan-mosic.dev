@@ -58,7 +58,7 @@ templ Projects() {
 		<h2 class="text-2xl font-bold mb-16 mt-4">Projects</h2>
 
 		for _, project := range allProjects {
-			<div class="flex flex-col items-center rounded-xl mb-16 bg-black/25">
+			<div class="flex flex-col items-center rounded-xl mb-16 bg-white/25">
 				<img
 					src={ project.Thumbnail }
 					alt={ project.Name }
@@ -74,7 +74,7 @@ templ Projects() {
 
 				<div class="flex flex-wrap justify-center gap-2 mb-4">
 					for _, role := range project.Role {
-						<span class="py-2 px-4 text-xs rounded-full bg-black/50 border-1 border-black">
+						<span class="py-2 px-4 text-xs rounded-full bg-white/50 border-1 border-white text-black">
 							{ role }
 						</span>
 					}
