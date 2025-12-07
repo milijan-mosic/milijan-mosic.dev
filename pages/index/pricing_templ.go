@@ -29,7 +29,7 @@ func Pricing() templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<section id=\"pricing\" class=\"glass-card p-4 my-16 mx-4 flex flex-col items-center\"><h2 class=\"text-2xl font-bold mb-16 mt-4\">Pricing</h2></section>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<section id=\"pricing\" class=\"glass-card p-8 my-16 mx-4 flex flex-col items-center w-full md:w-[400px]\"><h2 class=\"text-2xl font-bold mb-16 mt-4\">Pricing</h2></section>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

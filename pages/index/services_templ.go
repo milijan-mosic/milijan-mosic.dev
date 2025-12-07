@@ -44,7 +44,7 @@ func Services() templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<section id=\"services\" class=\"glass-card p-4 my-16 mx-4 flex flex-col items-center\"><h2 class=\"text-2xl font-bold mt-4\">Services</h2>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<section id=\"services\" class=\"glass-card p-8 my-16 mx-4 flex flex-col items-center w-full md:w-[400px]\"><h2 class=\"text-2xl font-bold mt-4\">Services</h2>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

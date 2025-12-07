@@ -45,13 +45,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
       status.textContent = "Request sent successfully!";
       status.className =
-        "text-green-500 text-xl mt-4 rounded-full p-4 bg-black/50 text-center";
+        "text-green-500 text-xl mt-4 rounded-full p-8 bg-black/50 text-center";
 
       form.reset();
     } catch (err) {
       status.textContent = "Something went wrong. Try again later.";
       status.className =
-        "text-red-500 text-xl mt-4 rounded-full p-4 bg-black/50 text-center";
+        "text-red-500 text-xl mt-4 rounded-full p-8 bg-black/50 text-center";
     }
 
     button.disabled = false;

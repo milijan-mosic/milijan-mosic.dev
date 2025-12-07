@@ -31,20 +31,20 @@ func Footer() templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<section class=\"glass-card p-4 my-16 mx-4 flex flex-col items-center\"><div class=\"flex flex-col mt-4\"><p>© ")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<section class=\"glass-card p-8 my-16 mx-4 flex flex-col items-center w-full md:w-[400px]\"><div class=\"flex flex-col items-center mt-4\"><p>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
 		var templ_7745c5c3_Var2 string
 		templ_7745c5c3_Var2, templ_7745c5c3_Err = templ.JoinStringErrs(time.Now().Year())
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pages/index/footer.templ`, Line: 8, Col: 28}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pages/index/footer.templ`, Line: 8, Col: 25}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var2))
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, " Milijan Mosić — Software Engineer</p><p class=\"mt-4\">Based in Serbia — Working worldwide</p></div><div class=\"flex flex-row justify-between my-16 text-sm w-full\"><div class=\"flex flex-col w-1/2 gap-4\"><a href=\"/#about-me\" class=\"underline\">About Me</a> <a href=\"/#services\" class=\"underline\">Services</a> <a href=\"/#skills\" class=\"underline\">Skills</a></div><div class=\"flex flex-col w-1/2 gap-4\"><a href=\"/#projects\" class=\"underline\">Projects</a> <a href=\"/#testimonials\" class=\"underline\">Testimonials</a> <a href=\"/#contact-me\" class=\"underline\">Contact Me</a></div></div><div class=\"flex mb-4\"><a href=\"#\" class=\"glass-card w-12 h-12 m-1 hover:bg-white text-2xl flex items-center justify-center\"><i class=\"fa-solid fa-location-dot\"></i></a> <a href=\"#\" class=\"glass-card w-12 h-12 m-1 hover:bg-white text-2xl flex items-center justify-center\"><i class=\"fa-solid fa-envelope\"></i></a> <a href=\"#\" class=\"glass-card w-12 h-12 m-1 hover:bg-white text-2xl flex items-center justify-center\"><i class=\"fa-brands fa-github\"></i></a> <a href=\"#\" class=\"glass-card w-12 h-12 m-1 hover:bg-white text-2xl flex items-center justify-center\"><i class=\"fa-brands fa-linkedin\"></i></a></div></section>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, ". Milijan Mosić — Software Engineer</p><p>Based in Serbia — Working worldwide</p></div><div class=\"flex flex-row justify-between my-16 text-sm w-full\"><div class=\"flex flex-col w-1/2 gap-8 items-end pr-4\"><a href=\"/#about-me\" class=\"underline\">About Me</a> <a href=\"/#services\" class=\"underline\">Services</a> <a href=\"/#skills\" class=\"underline\">Skills</a></div><div class=\"flex flex-col w-1/2 gap-8 items-start pl-4\"><a href=\"/#projects\" class=\"underline\">Projects</a> <a href=\"/#testimonials\" class=\"underline\">Testimonials</a> <a href=\"/#contact-me\" class=\"underline\">Contact Me</a></div></div><div class=\"flex mb-4\"><a href=\"#\" class=\"glass-card w-12 h-12 m-1 hover:bg-white text-2xl flex items-center justify-center\"><i class=\"fa-solid fa-location-dot\"></i></a> <a href=\"#\" class=\"glass-card w-12 h-12 m-1 hover:bg-white text-2xl flex items-center justify-center\"><i class=\"fa-solid fa-envelope\"></i></a> <a href=\"#\" class=\"glass-card w-12 h-12 m-1 hover:bg-white text-2xl flex items-center justify-center\"><i class=\"fa-brands fa-github\"></i></a> <a href=\"#\" class=\"glass-card w-12 h-12 m-1 hover:bg-white text-2xl flex items-center justify-center\"><i class=\"fa-brands fa-linkedin\"></i></a></div></section>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
