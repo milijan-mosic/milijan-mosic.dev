@@ -1,6 +1,9 @@
+- Desktop layout
+- Fix CTA form
 - Mobile navbar
-- SQLite database for storing emails...
+
 - Find new icon pack and install it locally
-- Tree-shake Tailwind CSS
 - Fill website with real content
+
+- Tree-shake Tailwind CSS
 - Lighthouse 100%
