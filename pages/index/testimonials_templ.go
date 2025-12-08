@@ -80,32 +80,32 @@ func testimonialSection(title string, data []Testimonial) templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<section id=\"testimonials\" class=\"glass-card p-4 md:p-8 my-16 mx-4 flex flex-col items-center md:w-[400px]\"><h2 class=\"text-2xl font-bold mt-4\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<section id=\"testimonials\" class=\"glass-card p-4 md:p-8 my-16 mx-4 flex flex-col items-center md:w-[400px] lg:w-[550px] xl:w-[1000px]\"><h2 class=\"text-2xl font-bold mt-4 text-center\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
 		var templ_7745c5c3_Var2 string
 		templ_7745c5c3_Var2, templ_7745c5c3_Err = templ.JoinStringErrs(title)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pages/index/testimonials.templ`, Line: 56, Col: 45}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pages/index/testimonials.templ`, Line: 56, Col: 57}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var2))
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "</h2><div class=\"flex flex-col items-center w-full mb-8\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "</h2><div class=\"flex flex-col lg:flex-row items-center w-full mb-8 lg:mb-0 lg:mt-8\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
 		for _, testimonial := range data {
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "<article class=\"flex flex-col items-center text-center bg-white/25 shadow-xl rounded-xl p-4 md:p-8 mt-16 w-full\"><img fetchpriority=\"high\" src=\"")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "<article class=\"flex flex-col items-center text-center bg-white/25 shadow-xl rounded-xl p-4 md:p-8 mt-16 lg:m-8 w-full lg:w-[250px]\"><img fetchpriority=\"high\" src=\"")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var3 string
 			templ_7745c5c3_Var3, templ_7745c5c3_Err = templ.JoinStringErrs(testimonial.Image)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pages/index/testimonials.templ`, Line: 62, Col: 29}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pages/index/testimonials.templ`, Line: 63, Col: 29}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var3))
 			if templ_7745c5c3_Err != nil {
@@ -118,7 +118,7 @@ func testimonialSection(title string, data []Testimonial) templ.Component {
 			var templ_7745c5c3_Var4 string
 			templ_7745c5c3_Var4, templ_7745c5c3_Err = templ.JoinStringErrs(fmt.Sprintf("Photo of the person named ", testimonial.Name))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pages/index/testimonials.templ`, Line: 63, Col: 71}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pages/index/testimonials.templ`, Line: 64, Col: 71}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var4))
 			if templ_7745c5c3_Err != nil {
@@ -131,7 +131,7 @@ func testimonialSection(title string, data []Testimonial) templ.Component {
 			var templ_7745c5c3_Var5 string
 			templ_7745c5c3_Var5, templ_7745c5c3_Err = templ.JoinStringErrs(testimonial.Name)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pages/index/testimonials.templ`, Line: 66, Col: 57}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pages/index/testimonials.templ`, Line: 67, Col: 57}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var5))
 			if templ_7745c5c3_Err != nil {
@@ -144,7 +144,7 @@ func testimonialSection(title string, data []Testimonial) templ.Component {
 			var templ_7745c5c3_Var6 string
 			templ_7745c5c3_Var6, templ_7745c5c3_Err = templ.JoinStringErrs(testimonial.Company)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pages/index/testimonials.templ`, Line: 67, Col: 42}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pages/index/testimonials.templ`, Line: 68, Col: 42}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var6))
 			if templ_7745c5c3_Err != nil {
@@ -157,7 +157,7 @@ func testimonialSection(title string, data []Testimonial) templ.Component {
 			var templ_7745c5c3_Var7 string
 			templ_7745c5c3_Var7, templ_7745c5c3_Err = templ.JoinStringErrs(testimonial.Message)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pages/index/testimonials.templ`, Line: 69, Col: 27}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pages/index/testimonials.templ`, Line: 70, Col: 27}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var7))
 			if templ_7745c5c3_Err != nil {
