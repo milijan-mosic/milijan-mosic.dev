@@ -9,10 +9,10 @@ type Service struct {
 }
 
 var allServices = []Service{
-	{Icon: "fa-solid fa-globe", Title: "Web App Development", Paragraph: "Modern, responsive, and fast front-end applications. Building fast, secure, and maintainable APIs, microservices, and real-time systems"},
-	{Icon: "fa-solid fa-cloud", Title: "Cloud App Development", Paragraph: "CI/CD pipelines, Docker, Kubernetes, AWS infrastructure"},
-	{Icon: "fa-solid fa-desktop", Title: "Desktop App Development", Paragraph: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer dictum velit quis ligula viverra maximus"},
-	{Icon: "fa-solid fa-mobile", Title: "Mobile App Development", Paragraph: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer dictum velit quis ligula viverra maximus"},
+	{Icon: "web", Title: "Web App Development", Paragraph: "Modern, responsive, and fast front-end applications. Building fast, secure, and maintainable APIs, microservices, and real-time systems"},
+	{Icon: "cloud", Title: "Cloud App Development", Paragraph: "CI/CD pipelines, Docker, Kubernetes, AWS infrastructure"},
+	{Icon: "monitor", Title: "Desktop App Development", Paragraph: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer dictum velit quis ligula viverra maximus"},
+	{Icon: "cellphone", Title: "Mobile App Development", Paragraph: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer dictum velit quis ligula viverra maximus"},
 }
 
 templ Services() {
@@ -23,7 +23,7 @@ templ Services() {
 			for _, service := range allServices {
 				<div class="flex flex-col items-center mt-16 lg:w-1/2">
 					<div class="flex flex-col items-center">
-						<i class={ fmt.Sprintf("text-3xl %s", service.Icon) }></i>
+						<span id="icon" class="iconify text-5xl" data-icon={ fmt.Sprintf("mdi-%s", service.Icon) }></span>
 						<h2 class="text-xl mt-2">{ service.Title }</h2>
 					</div>
 					<div class="mt-4 lg:w-[400px]">

@@ -17,10 +17,10 @@ type Service struct {
 }
 
 var allServices = []Service{
-	{Icon: "fa-solid fa-globe", Title: "Web App Development", Paragraph: "Modern, responsive, and fast front-end applications. Building fast, secure, and maintainable APIs, microservices, and real-time systems"},
-	{Icon: "fa-solid fa-cloud", Title: "Cloud App Development", Paragraph: "CI/CD pipelines, Docker, Kubernetes, AWS infrastructure"},
-	{Icon: "fa-solid fa-desktop", Title: "Desktop App Development", Paragraph: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer dictum velit quis ligula viverra maximus"},
-	{Icon: "fa-solid fa-mobile", Title: "Mobile App Development", Paragraph: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer dictum velit quis ligula viverra maximus"},
+	{Icon: "web", Title: "Web App Development", Paragraph: "Modern, responsive, and fast front-end applications. Building fast, secure, and maintainable APIs, microservices, and real-time systems"},
+	{Icon: "cloud", Title: "Cloud App Development", Paragraph: "CI/CD pipelines, Docker, Kubernetes, AWS infrastructure"},
+	{Icon: "monitor", Title: "Desktop App Development", Paragraph: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer dictum velit quis ligula viverra maximus"},
+	{Icon: "cellphone", Title: "Mobile App Development", Paragraph: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer dictum velit quis ligula viverra maximus"},
 }
 
 func Services() templ.Component {
@@ -49,60 +49,51 @@ func Services() templ.Component {
 			return templ_7745c5c3_Err
 		}
 		for _, service := range allServices {
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "<div class=\"flex flex-col items-center mt-16 lg:w-1/2\"><div class=\"flex flex-col items-center\">")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "<div class=\"flex flex-col items-center mt-16 lg:w-1/2\"><div class=\"flex flex-col items-center\"><span id=\"icon\" class=\"iconify text-5xl\" data-icon=\"")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			var templ_7745c5c3_Var2 = []any{fmt.Sprintf("text-3xl %s", service.Icon)}
-			templ_7745c5c3_Err = templ.RenderCSSItems(ctx, templ_7745c5c3_Buffer, templ_7745c5c3_Var2...)
+			var templ_7745c5c3_Var2 string
+			templ_7745c5c3_Var2, templ_7745c5c3_Err = templ.JoinStringErrs(fmt.Sprintf("mdi-%s", service.Icon))
+			if templ_7745c5c3_Err != nil {
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pages/index/services.templ`, Line: 26, Col: 94}
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var2))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "<i class=\"")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "\"></span><h2 class=\"text-xl mt-2\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var3 string
-			templ_7745c5c3_Var3, templ_7745c5c3_Err = templ.JoinStringErrs(templ.CSSClasses(templ_7745c5c3_Var2).String())
+			templ_7745c5c3_Var3, templ_7745c5c3_Err = templ.JoinStringErrs(service.Title)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pages/index/services.templ`, Line: 1, Col: 0}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pages/index/services.templ`, Line: 27, Col: 46}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var3))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, "\"></i><h2 class=\"text-xl mt-2\">")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, "</h2></div><div class=\"mt-4 lg:w-[400px]\"><p>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var4 string
-			templ_7745c5c3_Var4, templ_7745c5c3_Err = templ.JoinStringErrs(service.Title)
+			templ_7745c5c3_Var4, templ_7745c5c3_Err = templ.JoinStringErrs(service.Paragraph)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pages/index/services.templ`, Line: 27, Col: 46}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pages/index/services.templ`, Line: 30, Col: 28}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var4))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 5, "</h2></div><div class=\"mt-4 lg:w-[400px]\"><p>")
-			if templ_7745c5c3_Err != nil {
-				return templ_7745c5c3_Err
-			}
-			var templ_7745c5c3_Var5 string
-			templ_7745c5c3_Var5, templ_7745c5c3_Err = templ.JoinStringErrs(service.Paragraph)
-			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pages/index/services.templ`, Line: 30, Col: 28}
-			}
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var5))
-			if templ_7745c5c3_Err != nil {
-				return templ_7745c5c3_Err
-			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 6, "</p></div></div>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 5, "</p></div></div>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 7, "</div><div class=\"flex flex-col items-center mb-2\"><p class=\"mb-8 mt-16\">If you’re interested in collaborating or need support on a project, feel free to get in touch :)</p><a href=\"/#contact-me\" class=\"transition-all duration-75 ease-linear text-lg rounded-full p-2 px-4 mb-4 bg-sky-800 border-1 border-sky-500 hover:border-white hover:bg-white hover:text-black hover:cursor-pointer\">Let’s work</a></div></section>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 6, "</div><div class=\"flex flex-col items-center mb-2\"><p class=\"mb-8 mt-16\">If you’re interested in collaborating or need support on a project, feel free to get in touch :)</p><a href=\"/#contact-me\" class=\"transition-all duration-75 ease-linear text-lg rounded-full p-2 px-4 mb-4 bg-sky-800 border-1 border-sky-500 hover:border-white hover:bg-white hover:text-black hover:cursor-pointer\">Let’s work</a></div></section>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

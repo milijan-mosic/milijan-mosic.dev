@@ -1,5 +1,7 @@
 package pages
 
+import "fmt"
+
 type Skill struct {
 	Icon string
 	Name string
@@ -11,53 +13,53 @@ type Group struct {
 }
 
 var frontendSkills = []Skill{
-	{Icon: "fa-solid fa-globe", Name: "React"},
-	{Icon: "fa-solid fa-cloud", Name: "TypeScript"},
-	{Icon: "fa-solid fa-mobile", Name: "Tailwind CSS"},
-	{Icon: "fa-solid fa-desktop", Name: "Vite"},
+	{Icon: "react", Name: "React"},
+	{Icon: "language-typescript", Name: "TypeScript"},
+	{Icon: "tailwind", Name: "Tailwind CSS"},
+	{Icon: "lightning-bolt", Name: "Vite"},
 }
 var frontend = Group{Title: "Frontend", Skills: frontendSkills}
 
 var backendSkills = []Skill{
-	{Icon: "fa-solid fa-globe", Name: "Go"},
-	{Icon: "fa-solid fa-cloud", Name: "Python"},
-	{Icon: "fa-solid fa-mobile", Name: "NodeJS"},
+	{Icon: "language-go", Name: "Go"},
+	{Icon: "language-python", Name: "Python"},
+	{Icon: "nodejs", Name: "NodeJS"},
 }
 var backend = Group{Title: "Backend", Skills: backendSkills}
 
 var databaseSkills = []Skill{
-	{Icon: "fa-solid fa-desktop", Name: "SQL"},
-	{Icon: "fa-solid fa-globe", Name: "PostgreSQL"},
-	// {Icon: "fa-solid fa-cloud", Name: "CouchDB"},
-	{Icon: "fa-solid fa-mobile", Name: "MongoDB"},
-	{Icon: "fa-solid fa-desktop", Name: "MinIO"},
+	{Icon: "database-search", Name: "SQL"},
+	{Icon: "database", Name: "PostgreSQL"},
+	// {Icon: "sofa", Name: "CouchDB"},
+	{Icon: "leaf", Name: "MongoDB"},
+	{Icon: "bird", Name: "MinIO"},
 }
 var database = Group{Title: "Databases", Skills: databaseSkills}
 
 var technologiesSkills = []Skill{
-	{Icon: "fa-solid fa-desktop", Name: "AWS"},
-	{Icon: "fa-solid fa-globe", Name: "Git"},
-	{Icon: "fa-solid fa-desktop", Name: "Redis"},
-	{Icon: "fa-solid fa-cloud", Name: "Kafka"},
-	{Icon: "fa-solid fa-mobile", Name: "RabbitMQ"},
+	{Icon: "aws", Name: "AWS"},
+	{Icon: "git", Name: "Git"},
+	{Icon: "menu", Name: "Redis"},
+	{Icon: "apache-kafka", Name: "Kafka"},
+	{Icon: "rabbit", Name: "RabbitMQ"},
 }
 var technologies = Group{Title: "Technologies", Skills: technologiesSkills}
 
 var sysAdminSkills = []Skill{
-	{Icon: "fa-solid fa-globe", Name: "Linux"},
-	{Icon: "fa-solid fa-mobile", Name: "Bash"},
-	{Icon: "fa-solid fa-mobile", Name: "Caddy"},
-	{Icon: "fa-solid fa-mobile", Name: "Ngnix"},
+	{Icon: "penguin", Name: "Linux"},
+	{Icon: "bash", Name: "Bash"},
+	{Icon: "lock", Name: "Caddy"},
+	{Icon: "server", Name: "Ngnix"},
 }
 var sysAdmin = Group{Title: "System Administration", Skills: sysAdminSkills}
 
 var devOpsSkills = []Skill{
-	{Icon: "fa-solid fa-desktop", Name: "GitLab CI"},
-	{Icon: "fa-solid fa-desktop", Name: "ArgoCD"},
-	{Icon: "fa-solid fa-mobile", Name: "Docker"},
-	{Icon: "fa-solid fa-desktop", Name: "Kubernetes"},
-	{Icon: "fa-solid fa-desktop", Name: "Grafana"},
-	{Icon: "fa-solid fa-desktop", Name: "Prometheus"},
+	{Icon: "gitlab", Name: "GitLab CI"},
+	{Icon: "crosshairs", Name: "ArgoCD"},
+	{Icon: "docker", Name: "Docker"},
+	{Icon: "kubernetes", Name: "Kubernetes"},
+	{Icon: "chart-bar", Name: "Grafana"},
+	{Icon: "torch", Name: "Prometheus"},
 }
 var devOps = Group{Title: "DevOps", Skills: devOpsSkills}
 
@@ -80,9 +82,9 @@ templ Skills() {
 					<h2 class="text-xl mb-4">{ group.Title }</h2>
 					<div class="flex flex-wrap">
 						for _, skill := range group.Skills {
-							<div class="flex flex-col items-center w-1/2 lg:w-24 mb-4">
-								<div class="glass-card flex flex-col items-center justify-center rounded-xl w-16 h-16 text-3xl">
-									<i class={ skill.Icon }></i>
+							<div class="flex flex-col items-center w-1/2 lg:w-24 mb-4 hover:text-black hover:bg-white transition-all duration-75 ease-linear rounded-xl">
+								<div class="flex flex-col items-center justify-center w-16 h-16 text-3xl">
+									<span id="icon" class="iconify text-5xl" data-icon={ fmt.Sprintf("mdi-%s", skill.Icon) }></span>
 								</div>
 								<p>{ skill.Name }</p>
 							</div>

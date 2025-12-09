@@ -94,4 +94,4 @@ Become the “go-to” person for one niche.
 - “Internal dashboards for medical clinics”
 - “Routing solutions for delivery companies”
 - “Operational software for repair centers”
-- “Geospatial routing optimization for fleets” (leveraging OSRM!)
+- “Geospatial routing optimization for fleets”

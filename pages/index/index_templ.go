@@ -65,7 +65,7 @@ func Index() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "</div><script defer type=\"module\" src=\"/static/index.js\"></script><script defer src=\"https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4\"></script><script defer src=\"https://kit.fontawesome.com/59b089c6a9.js\" crossorigin=\"anonymous\"></script></body></html>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "</div><script defer type=\"module\" src=\"/static/index.js\"></script><script defer src=\"https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4\"></script><script defer src=\"//code.iconify.design/1/1.0.6/iconify.min.js\"></script></body></html>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
