@@ -1,3 +1,4 @@
+- Ask for testimonials
 - Fix CTA form
 - Mobile navbar
 
