@@ -17,10 +17,10 @@ type Service struct {
 }
 
 var allServices = []Service{
-	{Icon: "web", Title: "Web App Development", Paragraph: "Modern, responsive, and fast front-end applications. Building fast, secure, and maintainable APIs, microservices, and real-time systems"},
-	{Icon: "cloud", Title: "Cloud App Development", Paragraph: "CI/CD pipelines, Docker, Kubernetes, AWS infrastructure"},
-	{Icon: "monitor", Title: "Desktop App Development", Paragraph: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer dictum velit quis ligula viverra maximus"},
-	{Icon: "cellphone", Title: "Mobile App Development", Paragraph: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer dictum velit quis ligula viverra maximus"},
+	{Icon: "web", Title: "Web App Development", Paragraph: "Modern, responsive, and fast front-end applications. Building secure, maintainable APIs, microservices, and real-time systems."},
+	{Icon: "cloud", Title: "Cloud App Development", Paragraph: "Cloud-native deployments with scalability, automation, and strong security. Optimized infrastructure using containers, Kubernetes, and CI/CD."},
+	{Icon: "monitor", Title: "Desktop App Development", Paragraph: "Lightweight, high-performance desktop tools tailored to your workflow. Reliable systems built for speed, productivity, and long-term maintainability."},
+	{Icon: "cellphone", Title: "Mobile App Development", Paragraph: "Smooth, performant mobile apps with clean UX and strong backend integration. Cross-platform, secure, and optimized for a seamless user experience."},
 }
 
 func Services() templ.Component {
