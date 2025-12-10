@@ -52,7 +52,7 @@ var colleagueTestimonials = []Testimonial{
 }
 
 templ testimonialSection(title string, data []Testimonial) {
-	<section id="testimonials" class="glass-card p-4 md:p-8 my-16 mx-4 flex flex-col items-center md:w-[400px] lg:w-[550px] xl:w-[1000px]">
+	<div id="testimonials" class="glass-card p-4 md:p-8 my-16 mx-4 flex flex-col items-center md:w-[400px] lg:w-[550px] xl:w-[1000px]">
 		<h2 class="text-2xl font-bold mt-4 text-center">{ title }</h2>
 		<div class="flex flex-col lg:flex-row items-center w-full mb-8 lg:mb-0 lg:mt-8">
 			for _, testimonial := range data {
@@ -71,12 +71,12 @@ templ testimonialSection(title string, data []Testimonial) {
 				</article>
 			}
 		</div>
-	</section>
+	</div>
 }
 
 templ Testimonials() {
-	<div>
+	<section class="w-full">
 		@testimonialSection("Client Feedback", clientTestimonials)
 		@testimonialSection("Peer Endorsements", colleagueTestimonials)
-	</div>
+	</section>
 }
