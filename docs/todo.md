@@ -1,9 +1,9 @@
-- Ask for testimonials
 - Fix CTA form
 - Mobile navbar
+- Fill website with real content
 
 - Find new icon pack and install it locally
-- Fill website with real content
+- Ask for testimonials
 
 - Tree-shake Tailwind CSS
 - Minify everything (CSS, JS)
