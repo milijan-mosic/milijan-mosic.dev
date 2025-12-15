@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
     e.preventDefault();
     button.disabled = true;
     button.className =
-      "transition-all duration-75 ease-linear text-lg rounded-full p-2 px-4 mb-4 bg-yellow-300 text-black cursor-not-allowed";
+      "animate text-lg rounded-full p-2 px-4 mb-4 bg-yellow-300 text-black cursor-not-allowed";
     button.innerHTML = "Sending...";
 
     const payload = {
@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     button.disabled = false;
     button.className =
-      "transition-all duration-75 ease-linear text-lg rounded-full p-2 px-4 mb-4 bg-sky-800 border-1 border-sky-500 hover:border-white hover:bg-white hover:text-black hover:cursor-pointer";
+      "animate text-lg rounded-full p-2 px-4 mb-4 bg-sky-800 border-1 border-sky-500 hover:border-white hover:bg-white hover:text-black hover:cursor-pointer";
     button.innerHTML = "Send Request";
   });
 });

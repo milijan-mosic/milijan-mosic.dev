@@ -99,7 +99,7 @@ func RenderSkill(skills []Skill) templ.Component {
 		}
 		ctx = templ.ClearChildren(ctx)
 		for _, skill := range skills {
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div class=\"flex flex-col items-center w-1/2 lg:w-28 my-2 hover:text-black hover:bg-white transition-all duration-75 ease-linear rounded-xl\"><div class=\"flex flex-col items-center justify-center w-16 h-16 text-3xl\"><span id=\"icon\" class=\"iconify text-5xl\" data-icon=\"")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div class=\"flex flex-col items-center w-1/2 lg:w-28 my-2 hover:text-black hover:bg-white animate rounded-xl\"><div class=\"flex flex-col items-center justify-center w-16 h-16 text-3xl\"><span id=\"icon\" class=\"iconify text-5xl\" data-icon=\"")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
