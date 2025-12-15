@@ -9,7 +9,7 @@ templ Index() {
 			<meta charset="UTF-8"/>
 			<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 			<link href="/static/index.css" rel="stylesheet"/>
-			<link href="/static/global.css" rel="stylesheet"/>
+			<link href="/static/base.css" rel="stylesheet"/>
 			<title>Milijan Mosić - Software Engineer</title>
 			<meta name="author" content="Milijan Mosić"/>
 			<meta name="description" content="Chi + Templ + Tailwind CSS"/>
@@ -18,7 +18,7 @@ templ Index() {
 			// <div class="fixed w-screen h-screen">
 			// 	<canvas id="canvas" class="fixed top-0 right-0 bottom-0 left-0 overflow-hidden touch-action-none"></canvas>
 			// </div>
-			<img src="/static/background.jpg" fetchpriority="high" alt="Background image for the website" class="fixed w-screen h-screen top-0 object-cover object-[20%] lg:object-none"/>
+			<img fetchpriority="high" src="/static/background.jpg" alt="Background image for the website" class="fixed w-screen h-screen top-0 object-cover object-[20%] lg:object-none"/>
 			<div class="flex flex-col items-center">
 				@components.Navbar()
 				@Base()
@@ -31,8 +31,8 @@ templ Index() {
 				@components.Footer()
 			</div>
 			<script defer type="module" src="/static/index.js"></script>
-			<script defer src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-			<script defer src="//code.iconify.design/1/1.0.6/iconify.min.js"></script>
+			// <script defer src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+			// <script defer src="//code.iconify.design/1/1.0.6/iconify.min.js"></script>
 		</body>
 	</html>
 }

@@ -8,11 +8,6 @@
 // app.liquidPlane.uniforms.displacementScale.value = 5;
 // app.setRain(true);
 
-// app.liquidPlane.material.metalness = 0.0;
-// app.liquidPlane.material.roughness = 0.0;
-// app.liquidPlane.uniforms.displacementScale.value = 0;
-// app.setRain(false);
-
 // ---------------------------------------------------------------- #### ----------------------------------------------------------------
 
 document.addEventListener("DOMContentLoaded", () => {
