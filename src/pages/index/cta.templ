@@ -3,29 +3,30 @@ package pages
 templ CTA() {
 	<section id="contact-me" class="glass-card p-4 md:p-8 my-16 mx-4 flex flex-col items-center md:w-[400px] lg:w-[550px] xl:w-[1000px]">
 		<h2 class="text-2xl font-bold mb-16 mt-4">Contact Me</h2>
+		<p class="mb-16">Have an idea, a project, or a challenge you’d like to discuss? I’m always happy to connect and explore how we can work together.</p>
 		<form id="contact-form" class="flex flex-col gap-8 w-full">
 			<div class="flex flex-col items-center w-full">
-				<label for="name" class="block mb-1">Name</label>
+				<label for="name" class="w-full lg:w-1/2 mb-1">Name</label>
 				<input
 					required
-					type="text"
 					id="name"
+					type="text"
 					name="name"
 					class="w-full lg:w-1/2 p-2 rounded-xl bg-white/25 border-2 border-white/0 focus:outline-none focus:border-white"
 				/>
 			</div>
-			<div class="w-full flex flex-col items-center">
-				<label for="email" class="block mb-1">Email</label>
+			<div class="flex flex-col items-center w-full">
+				<label for="email" class="w-full lg:w-1/2 mb-1">Email</label>
 				<input
 					required
-					type="email"
 					id="email"
+					type="email"
 					name="email"
 					class="w-full lg:w-1/2 p-2 rounded-xl bg-white/25 border-2 border-white/0 focus:outline-none focus:border-white"
 				/>
 			</div>
-			<div class="w-full flex flex-col items-center">
-				<label for="request" class="block mb-1">Request</label>
+			<div class="flex flex-col items-center w-full">
+				<label for="request" class="w-full lg:w-1/2 mb-1">Request</label>
 				<textarea
 					required
 					id="request"
@@ -34,7 +35,7 @@ templ CTA() {
 					class="w-full lg:w-1/2 p-2 rounded-xl bg-white/25 border-2 border-white/0 focus:outline-none focus:border-white"
 				></textarea>
 			</div>
-			<div class="flex flex-col items-center">
+			<div class="flex flex-col items-center w-full">
 				<!-- Status request -->
 				<p id="contact-status" class="text-xl mt-4 rounded-full p-4 md:p-8"></p>
 				<button
