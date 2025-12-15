@@ -15,21 +15,25 @@ var allServices = []Service{
 	{Icon: "cellphone", Title: "Mobile App Development", Paragraph: "Smooth, performant mobile apps with clean UX and strong backend integration. Cross-platform, secure, and optimized for a seamless user experience."},
 }
 
+templ RenderService(services []Service) {
+	for _, service := range allServices {
+		<div class="flex flex-col items-center mt-16 lg:w-1/2">
+			<div class="flex flex-col items-center">
+				<span id="icon" class="iconify text-5xl" data-icon={ fmt.Sprintf("mdi-%s", service.Icon) }></span>
+				<h2 class="text-xl mt-2">{ service.Title }</h2>
+			</div>
+			<div class="mt-4 lg:w-[400px]">
+				<p>{ service.Paragraph }</p>
+			</div>
+		</div>
+	}
+}
+
 templ Services() {
 	<section id="services" class="glass-card p-4 md:p-8 my-16 mx-4 flex flex-col items-center md:w-[400px] lg:w-[550px] xl:w-[1000px]">
 		<h2 class="text-2xl font-bold mt-4 text-center">Services</h2>
 		<div class="flex flex-row flex-wrap mb-8">
-			for _, service := range allServices {
-				<div class="flex flex-col items-center mt-16 lg:w-1/2">
-					<div class="flex flex-col items-center">
-						<span id="icon" class="iconify text-5xl" data-icon={ fmt.Sprintf("mdi-%s", service.Icon) }></span>
-						<h2 class="text-xl mt-2">{ service.Title }</h2>
-					</div>
-					<div class="mt-4 lg:w-[400px]">
-						<p>{ service.Paragraph }</p>
-					</div>
-				</div>
-			}
+			@RenderService(allServices)
 		</div>
 		<div class="flex flex-col items-center mb-2">
 			<p class="mb-8 mt-16">

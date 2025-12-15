@@ -59,7 +59,7 @@ var colleagueTestimonials = []Testimonial{
 	},
 }
 
-func testimonialSection(title string, data []Testimonial) templ.Component {
+func testimonialSection(title string, testimonials []Testimonial) templ.Component {
 	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
 		if templ_7745c5c3_CtxErr := ctx.Err(); templ_7745c5c3_CtxErr != nil {
@@ -97,7 +97,7 @@ func testimonialSection(title string, data []Testimonial) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		for _, testimonial := range data {
+		for _, testimonial := range testimonials {
 			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "<article class=\"flex flex-col items-center text-center bg-white/25 shadow-xl rounded-xl p-4 md:p-8 mt-16 lg:m-8 w-full lg:w-[250px]\"><img loading=\"lazy\" src=\"")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
