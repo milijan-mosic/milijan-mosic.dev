@@ -31,7 +31,7 @@ func Index() templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<!doctype html><html lang=\"en\"><head><meta charset=\"UTF-8\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"><link href=\"/static/index.css\" rel=\"stylesheet\"><title>Milijan Mosić - Software Engineer</title><meta name=\"author\" content=\"Milijan Mosić\"><meta name=\"description\" content=\"Chi + Templ + Tailwind CSS\"></head><body><img src=\"/static/background.jpg\" fetchpriority=\"high\" alt=\"Background image for the website\" class=\"fixed w-screen h-screen top-0 object-cover object-[20%]\"><div class=\"flex flex-col items-center\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<!doctype html><html lang=\"en\"><head><meta charset=\"UTF-8\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"><link href=\"/static/index.css\" rel=\"stylesheet\"><link href=\"/static/global.css\" rel=\"stylesheet\"><title>Milijan Mosić - Software Engineer</title><meta name=\"author\" content=\"Milijan Mosić\"><meta name=\"description\" content=\"Chi + Templ + Tailwind CSS\"></head><body><img src=\"/static/background.jpg\" fetchpriority=\"high\" alt=\"Background image for the website\" class=\"fixed w-screen h-screen top-0 object-cover object-[20%] lg:object-none\"><div class=\"flex flex-col items-center\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
