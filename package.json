@@ -20,7 +20,7 @@
   "bugs": {
     "url": "https://github.com/milijan-mosic/www.milijan-mosic.dev/issues"
   },
-  "homepage": "https://github.com/milijan-mosic/www.milijan-mosic.dev#readme",
+  "homepage": "https://github.com/milijan-mosic/www.milijan-mosic.dev#README",
   "devDependencies": {
     "autoprefixer": "^10.4.23",
     "postcss": "^8.5.6",
