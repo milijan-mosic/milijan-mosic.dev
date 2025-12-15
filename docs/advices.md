@@ -1,12 +1,12 @@
 # Advices
 
-You're not selling code — you're selling solutions
+You’re not selling code — you’re selling solutions
 
 You must translate tech into value
 
 Do not start with tech — start with a niche + a problem
 
-If you build something and nobody knows it exists → it's useless
+If you build something and nobody knows it exists → it’s useless
 
 Learn minimal sales + marketing:
 
