@@ -1,18 +1,18 @@
 package components
 
 templ Navbar() {
-	<nav id="navbar" class="glass-card opacity-0 fixed z-50 w-full lg:hidden animate rounded-b-3xl rounded-t-none">
-		<div class="max-w-6xl mx-auto flex justify-between items-center p-2">
+	<nav id="navbar" class="fixed z-50 w-full rounded-t-none rounded-b-3xl opacity-0 glass-card lg:hidden animate">
+		<div class="flex justify-between items-center p-2 mx-auto max-w-6xl">
 			<img
 				src="/static/images/logo.webp"
 				alt="Logo"
 				class="w-16 h-16 rounded-2xl"
 			/>
-			<button id="menuToggle" class="lg:hidden p-4" aria-label="Toggle menu">
+			<button id="menuToggle" class="p-4 lg:hidden" aria-label="Toggle menu">
 				<span id="menuIcon" class="text-3xl">☰</span>
 			</button>
 		</div>
-		<div id="mobileMenu" class="lg:hidden overflow-hidden max-h-0 animate">
+		<div id="mobileMenu" class="overflow-hidden max-h-0 lg:hidden animate">
 			<div class="flex flex-col items-center">
 				<a class="mobile-nav-link animate" href="/#about-me">About Me</a>
 				<a class="mobile-nav-link animate" href="/#services">Services</a>
