@@ -31,7 +31,7 @@ func Footer() templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<section class=\"glass-card p-4 md:p-8 my-16 mx-4 flex flex-col lg:flex-row items-center md:w-[400px] lg:w-[550px] xl:w-[1000px]\"><div class=\"flex flex-col items-center p-4 lg:p-0 lg:items-start w-full lg:w-1/3\"><p>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<section class=\"glass-card p-4 md:p-8 my-16 mx-4 flex flex-col lg:flex-row items-center md:w-[400px] lg:w-[550px] xl:w-[1000px]\"><div class=\"flex flex-col items-start p-4 lg:p-0 lg:items-start w-full lg:w-1/3 text-sm\"><p>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
