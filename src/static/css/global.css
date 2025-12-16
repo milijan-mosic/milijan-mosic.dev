@@ -2,7 +2,7 @@
 
 @layer components {
   .glass-card {
-    @apply outline-none overflow-hidden rounded-3xl border border-white/30 bg-linear-to-br from-white/20 to-transparent backdrop-blur-xl shadow-xl;
+    @apply overflow-hidden to-transparent rounded-3xl border shadow-xl backdrop-blur-xl outline-none border-white/30 bg-linear-to-br from-white/20;
   }
 
   .animate {
@@ -10,10 +10,10 @@
   }
 
   .mobile-nav-link {
-    @apply w-full p-4 text-lg hover:bg-white hover:text-black font-medium;
+    @apply p-4 w-full text-lg font-medium hover:bg-white hover:text-black;
   }
 
   .footer-nav-link {
-    @apply w-12 h-12 m-1 border-2 border-white/35 hover:text-black hover:bg-white rounded-xl text-2xl flex items-center justify-center;
+    @apply flex justify-center items-center m-1 w-12 h-12 text-2xl rounded-xl border-2 invert border-black/35 hover:border-white/35 hover:invert-0 hover:bg-white;
   }
 }
