@@ -19,19 +19,19 @@ type Testimonial struct {
 
 var clientTestimonials = []Testimonial{
 	{
-		Image:   "/static/person.webp",
+		Image:   "/static/images/person.webp",
 		Name:    "John Doe",
 		Company: "TechCorp",
 		Message: "Amazing work, highly recommended!",
 	},
 	{
-		Image:   "/static/person.webp",
+		Image:   "/static/images/person.webp",
 		Name:    "John Doe",
 		Company: "TechCorp",
 		Message: "Amazing work, highly recommended!",
 	},
 	{
-		Image:   "/static/person.webp",
+		Image:   "/static/images/person.webp",
 		Name:    "John Doe",
 		Company: "TechCorp",
 		Message: "Amazing work, highly recommended!",
@@ -40,19 +40,19 @@ var clientTestimonials = []Testimonial{
 
 var colleagueTestimonials = []Testimonial{
 	{
-		Image:   "/static/person.webp",
+		Image:   "/static/images/person.webp",
 		Name:    "John Doe",
 		Company: "TechCorp",
 		Message: "Amazing work, highly recommended!",
 	},
 	{
-		Image:   "/static/person.webp",
+		Image:   "/static/images/person.webp",
 		Name:    "John Doe",
 		Company: "TechCorp",
 		Message: "Amazing work, highly recommended!",
 	},
 	{
-		Image:   "/static/person.webp",
+		Image:   "/static/images/person.webp",
 		Name:    "John Doe",
 		Company: "TechCorp",
 		Message: "Amazing work, highly recommended!",
