@@ -56,7 +56,7 @@ var sysAdminSkills = []Skill{
 	{Icon: "penguin", Name: "Linux"},
 	{Icon: "bash", Name: "Bash"},
 	{Icon: "lock", Name: "Caddy"},
-	{Icon: "server", Name: "Ngnix"},
+	{Icon: "server", Name: "Nginx"},
 }
 var sysAdmin = Group{Title: "System Administration", Skills: sysAdminSkills}
 
@@ -99,7 +99,7 @@ func RenderSkill(skills []Skill) templ.Component {
 		}
 		ctx = templ.ClearChildren(ctx)
 		for _, skill := range skills {
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div class=\"flex flex-col items-center w-1/2 lg:w-28 my-2 hover:text-black hover:bg-white animate rounded-xl\"><div class=\"flex flex-col items-center justify-center w-16 h-16 text-3xl\"><span id=\"icon\" class=\"iconify text-5xl\" data-icon=\"")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div class=\"flex flex-col items-center my-2 w-1/2 rounded-xl lg:w-28 hover:text-black hover:bg-white animate\"><div class=\"flex flex-col justify-center items-center w-16 h-16 text-3xl\"><span id=\"icon\" class=\"text-5xl iconify\" data-icon=\"")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -156,7 +156,7 @@ func RenderGroup(groups []Group) templ.Component {
 		}
 		ctx = templ.ClearChildren(ctx)
 		for _, group := range groups {
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, "<div class=\"flex flex-col items-center w-full lg:w-1/2\"><h2 class=\"text-xl mt-16 mb-4\">")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, "<div class=\"flex flex-col items-center w-full lg:w-1/2\"><h2 class=\"mt-16 mb-4 text-xl\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -207,7 +207,7 @@ func Skills() templ.Component {
 			templ_7745c5c3_Var6 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 7, "<section id=\"skills\" class=\"glass-card p-4 md:p-8 my-16 mx-4 flex flex-col items-center md:w-[400px] lg:w-[550px] xl:w-[1000px]\"><h2 class=\"text-2xl font-bold mb-8 lg:mb-0 mt-4\">Skills</h2><div class=\"flex flex-row flex-wrap mb-4 lg:mb-4\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 7, "<section id=\"skills\" class=\"glass-card p-4 md:p-8 my-16 mx-4 flex flex-col items-center md:w-[400px] lg:w-[550px] xl:w-[1000px]\"><h2 class=\"mt-4 mb-8 text-2xl font-bold lg:mb-0\">Skills</h2><div class=\"flex flex-row flex-wrap mb-4 lg:mb-4\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

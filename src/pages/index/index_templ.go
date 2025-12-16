@@ -31,7 +31,7 @@ func Index() templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<!doctype html><html lang=\"en\"><head><meta charset=\"UTF-8\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"><link href=\"/static/css/index.css\" rel=\"stylesheet\"><link href=\"/static/css/base.css\" rel=\"stylesheet\"><title>Milijan Mosić - Software Engineer</title><meta name=\"author\" content=\"Milijan Mosić\"><meta name=\"description\" content=\"Chi + Templ + Tailwind CSS\"></head><body><div class=\"fixed w-screen h-screen\"><canvas id=\"canvas\" class=\"fixed top-0 right-0 bottom-0 left-0 overflow-hidden touch-action-none\"></canvas></div><div class=\"flex flex-col items-center\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<!doctype html><html lang=\"en\"><head><meta charset=\"UTF-8\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"><link href=\"/static/css/index.css\" rel=\"stylesheet\"><link href=\"/static/css/base.css\" rel=\"stylesheet\"><title>Milijan Mosić - Software Engineer</title><meta name=\"author\" content=\"Milijan Mosić\"><meta name=\"description\" content=\"Chi + Templ + Tailwind CSS\"></head><body><div class=\"fixed w-screen h-screen\"><canvas id=\"canvas\" class=\"overflow-hidden fixed top-0 right-0 bottom-0 left-0 touch-action-none\"></canvas></div><div class=\"flex flex-col items-center\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
