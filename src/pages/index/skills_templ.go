@@ -99,7 +99,7 @@ func RenderSkill(skills []Skill) templ.Component {
 		}
 		ctx = templ.ClearChildren(ctx)
 		for _, skill := range skills {
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div class=\"flex flex-col items-center my-2 w-1/2 rounded-xl lg:w-28 hover:text-black hover:bg-white animate\"><div class=\"flex flex-col justify-center items-center w-16 h-16 text-3xl\"><img src=\"")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div class=\"flex flex-col items-center my-2 w-1/2 rounded-xl lg:w-[200px] hover:text-white hover:bg-black hover:invert animate\"><div class=\"flex flex-col justify-center items-center w-16 h-16 text-3xl\"><img src=\"")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -169,7 +169,7 @@ func RenderGroup(groups []Group) templ.Component {
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 5, "</h2><div class=\"flex justify-center w-full\">")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 5, "</h2><div class=\"flex flex-wrap justify-center w-full\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
