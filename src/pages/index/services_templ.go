@@ -58,33 +58,46 @@ func RenderService(services []Service) templ.Component {
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "\" class=\"w-12 h-12 invert\"><h2 class=\"mt-2 text-xl\">")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "\" alt=\"")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var3 string
-			templ_7745c5c3_Var3, templ_7745c5c3_Err = templ.JoinStringErrs(service.Title)
+			templ_7745c5c3_Var3, templ_7745c5c3_Err = templ.JoinStringErrs(fmt.Sprintf("Icon for the service section named %s app development", service.Icon))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pages/index/services.templ`, Line: 23, Col: 44}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pages/index/services.templ`, Line: 22, Col: 155}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var3))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "</h2></div><div class=\"mt-4 lg:w-[400px]\"><p>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "\" class=\"w-12 h-12 invert\"><h2 class=\"mt-2 text-xl\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var4 string
-			templ_7745c5c3_Var4, templ_7745c5c3_Err = templ.JoinStringErrs(service.Paragraph)
+			templ_7745c5c3_Var4, templ_7745c5c3_Err = templ.JoinStringErrs(service.Title)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pages/index/services.templ`, Line: 26, Col: 26}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pages/index/services.templ`, Line: 23, Col: 44}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var4))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, "</p></div></div>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, "</h2></div><div class=\"mt-4 lg:w-[400px]\"><p>")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			var templ_7745c5c3_Var5 string
+			templ_7745c5c3_Var5, templ_7745c5c3_Err = templ.JoinStringErrs(service.Paragraph)
+			if templ_7745c5c3_Err != nil {
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pages/index/services.templ`, Line: 26, Col: 26}
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var5))
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 5, "</p></div></div>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -109,12 +122,12 @@ func Services() templ.Component {
 			}()
 		}
 		ctx = templ.InitializeContext(ctx)
-		templ_7745c5c3_Var5 := templ.GetChildren(ctx)
-		if templ_7745c5c3_Var5 == nil {
-			templ_7745c5c3_Var5 = templ.NopComponent
+		templ_7745c5c3_Var6 := templ.GetChildren(ctx)
+		if templ_7745c5c3_Var6 == nil {
+			templ_7745c5c3_Var6 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 5, "<section id=\"services\" class=\"glass-card p-4 md:p-8 my-16 mx-4 flex flex-col items-center md:w-[400px] lg:w-[550px] xl:w-[1000px]\"><h2 class=\"mt-4 text-2xl font-bold text-center\">Services</h2><div class=\"flex flex-row flex-wrap mb-8\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 6, "<section id=\"services\" class=\"glass-card p-4 md:p-8 my-16 mx-4 flex flex-col items-center md:w-[400px] lg:w-[550px] xl:w-[1000px]\"><h2 class=\"mt-4 text-2xl font-bold text-center\">Services</h2><div class=\"flex flex-row flex-wrap mb-8\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -122,7 +135,7 @@ func Services() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 6, "</div><div class=\"flex flex-col items-center mb-2\"><p class=\"mt-16 mb-8\">If you’re interested in collaborating or need support on a project, feel free to get in touch :)</p><a href=\"/#contact-me\" class=\"p-2 px-6 mb-4 text-lg bg-sky-800 rounded-full border-sky-500 animate md:px-8 border-1 hover:border-white hover:bg-white hover:text-black hover:cursor-pointer\">Let’s work</a></div></section>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 7, "</div><div class=\"flex flex-col items-center mb-2\"><p class=\"mt-16 mb-8\">If you’re interested in collaborating or need support on a project, feel free to get in touch :)</p><a href=\"/#contact-me\" class=\"p-2 px-6 mb-4 text-lg bg-sky-800 rounded-full border-sky-500 animate md:px-8 border-1 hover:border-white hover:bg-white hover:text-black hover:cursor-pointer\">Let’s work</a></div></section>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

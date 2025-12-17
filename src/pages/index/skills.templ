@@ -73,7 +73,7 @@ templ RenderSkill(skills []Skill) {
 	for _, skill := range skills {
 		<div class="flex flex-col items-center my-2 w-1/2 rounded-xl lg:w-[200px] hover:text-white hover:bg-black hover:invert animate">
 			<div class="flex flex-col justify-center items-center w-16 h-16 text-3xl">
-				<img src={ fmt.Sprintf("/static/icons/%s.svg", skill.Icon) } class="w-12 h-12 invert" />
+				<img src={ fmt.Sprintf("/static/icons/%s.svg", skill.Icon) } alt={ fmt.Sprintf("Icon for the skill named %s", skill.Icon) } class="w-12 h-12 invert" />
 			</div>
 			<p>{ skill.Name }</p>
 		</div>
