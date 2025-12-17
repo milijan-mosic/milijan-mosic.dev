@@ -16,4 +16,8 @@
   .footer-nav-link {
     @apply flex justify-center items-center m-1 w-12 h-12 text-2xl rounded-xl border-2 invert border-black/35 hover:border-white/35 hover:invert-0 hover:bg-white;
   }
+
+  .form-input {
+    @apply p-2 w-full rounded-xl border-2 placeholder-black/50 lg:w-1/2 bg-white/25 border-white/0 focus:outline-none focus:border-white;
+  }
 }
