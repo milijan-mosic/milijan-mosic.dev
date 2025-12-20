@@ -62,6 +62,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const mobileMenu = document.getElementById("mobileMenu");
 
   let isOpen = false;
+  const menuClosedIcon = "/static/icons/bars.svg";
+  const menuOpenIcon = "/static/icons/xmark.svg";
 
   function toggleNavbarVisibility() {
     if (window.scrollY > 900) {
@@ -72,7 +74,7 @@ document.addEventListener("DOMContentLoaded", () => {
       navbar.classList.remove("opacity-100");
       isOpen = false;
       mobileMenu.style.maxHeight = "0px";
-      menuIcon.textContent = "☰";
+      menuIcon.src = menuClosedIcon;
     }
   }
 
@@ -82,10 +84,10 @@ document.addEventListener("DOMContentLoaded", () => {
     isOpen = !isOpen;
     if (isOpen) {
       mobileMenu.style.maxHeight = "500px";
-      menuIcon.textContent = "✕";
+      menuIcon.src = menuOpenIcon;
     } else {
       mobileMenu.style.maxHeight = "0px";
-      menuIcon.textContent = "☰";
+      menuIcon.src = menuClosedIcon;
     }
   });
 
@@ -93,7 +95,7 @@ document.addEventListener("DOMContentLoaded", () => {
     link.addEventListener("click", () => {
       isOpen = false;
       mobileMenu.style.maxHeight = "0px";
-      menuIcon.textContent = "☰";
+      menuIcon.src = menuClosedIcon;
     });
   });
 });

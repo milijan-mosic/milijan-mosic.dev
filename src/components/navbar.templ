@@ -8,8 +8,8 @@ templ Navbar() {
 				alt="Logo of the website"
 				class="w-16 h-16 rounded-2xl"
 			/>
-			<button id="menuToggle" class="p-4 lg:hidden" aria-label="Toggle menu">
-				<span id="menuIcon" class="text-3xl">☰</span>
+			<button id="menuToggle" class="p-1 lg:hidden" aria-label="Toggle menu">
+				<img id="menuIcon" src="/static/icons/bars.svg" alt="Mobile menu icon" class="w-8 h-8 text-2xl invert" />
 			</button>
 		</div>
 		<div id="mobileMenu" class="overflow-hidden max-h-0 lg:hidden animate">
@@ -18,7 +18,7 @@ templ Navbar() {
 				<a class="mobile-nav-link animate" href="/#services">Services</a>
 				<a class="mobile-nav-link animate" href="/#skills">Skills</a>
 				<a class="mobile-nav-link animate" href="/#projects">Projects</a>
-				// <a class="mobile-nav-link animate" href="/#testimonials">Testimonials</a>
+				<a class="mobile-nav-link animate" href="/#testimonials">Testimonials</a>
 				<a class="mobile-nav-link animate" href="/#contact-me">Contact Me</a>
 			</div>
 		</div>
