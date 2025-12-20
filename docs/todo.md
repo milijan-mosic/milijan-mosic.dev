@@ -1,6 +1,3 @@
-- Change icons for mobile menu
-- Fix CTA form
-
 - Ask for testimonials
 - Add GORM + SQLite on backend (storing emails)
 
