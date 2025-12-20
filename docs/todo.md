@@ -1,5 +1,5 @@
 - Ask for testimonials
-- Fill website with real content for projects
+- Change icons for mobile menu
 
 - Add GORM + SQLite on backend (storing emails)
 
