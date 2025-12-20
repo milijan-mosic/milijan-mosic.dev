@@ -63,7 +63,7 @@ templ testimonialSection(title string, testimonials []Testimonial) {
 						alt={ fmt.Sprintf("Photo of the person named %s", testimonial.Name) }
 						class="object-cover mb-2 w-32 h-32 rounded-full shadow-lg"
 					/>
-					<h3 class="text-xl font-semibold">{ testimonial.Name }</h3>
+					<h3 class="text-xl font-bold">{ testimonial.Name }</h3>
 					<p class="mb-4">{ testimonial.Company }</p>
 					<blockquote class="text-sm italic leading-relaxed">
 						{ testimonial.Message }
