@@ -25,7 +25,7 @@ var allProjects = []Project{
 		Type:         "Cello Performer Website",
 		Description:  "A personal website for a professional cello performer, designed to present upcoming concerts, ongoing collaborations, and artistic projects. The platform serves as a central place for audiences, organizers, and collaborators to explore performances, media, and current engagements.",
 		Technologies: []string{"React", "TypeScript", "Tailwind CSS", "Go", "PostgreSQL", "Caddy"},
-		Role:         []string{"Full-Stack Development", "UI/UX Design & Implementation", "Deployment & Maintenance"},
+		Role:         []string{"Full-Stack Development", "UI Design & Implementation", "Deployment & Maintenance"},
 		Thumbnail:    "/static/images/projects/aleksandra-bengin.webp",
 	},
 	Project{
