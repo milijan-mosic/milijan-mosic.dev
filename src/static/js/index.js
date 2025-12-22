@@ -26,6 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
       name: form.name.value.trim(),
       email: form.email.value.trim(),
       message: form.request.value.trim(),
+      from_site: "Moss",
     };
 
     try {
