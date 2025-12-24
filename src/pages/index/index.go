@@ -18,6 +18,10 @@ func Homepage(w http.ResponseWriter, r *http.Request) {
 		"X-Frame-Options",
 		"SAMEORIGIN",
 	)
+	w.Header().Set(
+		"Content-Security-Policy",
+		"frame-ancestors 'self'",
+	)
 
 	err := Index().Render(r.Context(), w)
 	if err != nil {
