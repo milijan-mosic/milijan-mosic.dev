@@ -19,19 +19,19 @@ type Testimonial struct {
 
 var clientTestimonials = []Testimonial{
 	{
-		Image:   "/static/images/person.webp",
+		Image:   "/static/images/la-persona.webp",
 		Name:    "Ana Petrović",
 		Company: "Product Manager @ TechCorp",
 		Message: "Working with Milijan was a genuinely smooth experience. He understood our requirements quickly, proposed better technical solutions than we initially had, and delivered everything on time. Communication was clear and proactive, which made the whole project stress-free.",
 	},
 	{
-		Image:   "/static/images/person.webp",
+		Image:   "/static/images/le-person.webp",
 		Name:    "Marko Ilić",
 		Company: "Startup Founder @ ACME",
 		Message: "What stood out the most was Milijan’s ability to think beyond just writing code. He helped us shape the architecture, pointed out potential scaling issues early, and delivered a clean, maintainable solution. I would gladly work with him again.",
 	},
 	{
-		Image:   "/static/images/person.webp",
+		Image:   "/static/images/la-persona.webp",
 		Name:    "Laura Thompson",
 		Company: "Operations Lead @ XYZ Inc.",
 		Message: "Milijan combines strong backend expertise with a very pragmatic mindset. He doesn’t overcomplicate things and always focuses on what brings real value. The end result was reliable, fast, and easy to extend.",
@@ -40,19 +40,19 @@ var clientTestimonials = []Testimonial{
 
 var colleagueEndorsments = []Testimonial{
 	{
-		Image:   "/static/images/person.webp",
+		Image:   "/static/images/le-person.webp",
 		Name:    "Nikola Jovanović",
 		Company: "Software Engineer @ IT Engine",
 		Message: "Milijan is one of those engineers who truly understands systems, not just frameworks. He’s great at breaking down complex problems and explaining them clearly to the rest of the team.",
 	},
 	{
-		Image:   "/static/images/person.webp",
+		Image:   "/static/images/la-persona.webp",
 		Name:    "Sarah Müller",
 		Company: "DevOps Engineer @ Recall Taxi",
 		Message: "I’ve worked with Milijan on infrastructure-heavy projects, and his DevOps mindset really shows. He cares about deployments, monitoring, and reliability just as much as application logic.",
 	},
 	{
-		Image:   "/static/images/person.webp",
+		Image:   "/static/images/le-person.webp",
 		Name:    "Ivan Kostić",
 		Company: "Backend Engineer @ Tangled Group Inc.",
 		Message: "Milijan has a strong sense for clean architecture and performance. He’s disciplined, curious, and constantly improving his skills, which makes him a great teammate on any serious engineering project.",
@@ -150,7 +150,7 @@ func testimonialSection(title string, testimonials []Testimonial) templ.Componen
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 7, "</p><blockquote class=\"text-md italic leading-relaxed text-start\">")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 7, "</p><blockquote class=\"italic leading-relaxed text-md text-start\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
