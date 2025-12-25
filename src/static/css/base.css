@@ -460,6 +460,9 @@
   .object-cover {
     object-fit: cover;
   }
+  .object-\[20\%\] {
+    object-position: 20%;
+  }
   .p-1 {
     padding: calc(var(--spacing) * 1);
   }
@@ -783,6 +786,11 @@
     @media (width >= 64rem) {
       border-top-left-radius: var(--radius-xl);
       border-bottom-left-radius: var(--radius-xl);
+    }
+  }
+  .lg\:object-none {
+    @media (width >= 64rem) {
+      object-fit: none;
     }
   }
   .lg\:p-0 {
