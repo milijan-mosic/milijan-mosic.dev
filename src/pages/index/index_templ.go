@@ -41,7 +41,7 @@ func Index() templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<!doctype html><html lang=\"en\"><head><meta charset=\"UTF-8\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"><meta name=\"author\" content=\"Milijan Mosić\"><meta name=\"description\" content=\"Chi + Templ + Tailwind CSS\"><title>Milijan Mosić - Software Engineer</title><link href=\"/static/css/index.min.css\" rel=\"stylesheet\"><link href=\"/static/css/base.min.css\" rel=\"stylesheet\"><link rel=\"canonical\" href=\"https://milijan-mosic.dev\"><link rel=\"icon\" type=\"image/png\" href=\"/favicon-96x96.png\" sizes=\"96x96\"><link rel=\"icon\" type=\"image/svg+xml\" href=\"/favicon.svg\"><link rel=\"shortcut icon\" href=\"/favicon.ico\"><link rel=\"apple-touch-icon\" sizes=\"180x180\" href=\"/apple-touch-icon.png\"><link rel=\"manifest\" href=\"/site.webmanifest\"></head><body><div class=\"fixed w-screen h-screen\"><canvas id=\"canvas\" class=\"overflow-hidden fixed top-0 right-0 bottom-0 left-0 touch-action-none\"></canvas></div><div class=\"flex flex-col items-center\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<!doctype html><html lang=\"en\"><head><meta charset=\"UTF-8\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"><meta name=\"author\" content=\"Milijan Mosić\"><meta name=\"description\" content=\"Chi + Templ + Tailwind CSS\"><title>Milijan Mosić - Software Engineer</title><link href=\"/static/css/index.min.css\" rel=\"stylesheet\"><link href=\"/static/css/base.min.css\" rel=\"stylesheet\"><link rel=\"canonical\" href=\"https://milijan-mosic.dev\"><link rel=\"icon\" type=\"image/png\" href=\"/favicon-96x96.png\" sizes=\"96x96\"><link rel=\"icon\" type=\"image/svg+xml\" href=\"/favicon.svg\"><link rel=\"shortcut icon\" href=\"/favicon.ico\"><link rel=\"apple-touch-icon\" sizes=\"180x180\" href=\"/apple-touch-icon.png\"><link rel=\"manifest\" href=\"/site.webmanifest\"></head><body><img fetchpriority=\"high\" width=\"1920\" height=\"1080\" src=\"/static/images/background.webp\" alt=\"Background of the website\" class=\"fixed w-screen h-screen top-0 object-cover object-[20%] lg:object-none\"><div class=\"flex flex-col items-center\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -88,7 +88,7 @@ func Index() templ.Component {
 		var templ_7745c5c3_Var2 string
 		templ_7745c5c3_Var2, templ_7745c5c3_Err = templ.JoinStringErrs(generateNonce())
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pages/index/index.templ`, Line: 48, Col: 34}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pages/index/index.templ`, Line: 49, Col: 34}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var2))
 		if templ_7745c5c3_Err != nil {
