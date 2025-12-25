@@ -5,7 +5,7 @@ Dev setup
 ## Website rendering
 
 ```sh
-cd src/ ; templ generate --watch --proxy="http://localhost:10000" --cmd="go run ."
+cd src/ ; templ generate --watch --proxy="http://localhost:20000" --cmd="go run ."
 ```
 
 ## Tailwind CSS tree-shaking

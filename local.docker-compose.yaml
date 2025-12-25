@@ -11,15 +11,15 @@ services:
     networks:
       - heartbit
 
-  api:
-    image: api:latest
-    container_name: api
+  my_app:
+    image: my_app:latest
+    container_name: my_app
     restart: on-failure
     build:
       context: ./src
       dockerfile: docker/Dockerfile
     ports:
-      - "10000:10000"
+      - "20000:20000"
     depends_on:
       - server
     networks:
