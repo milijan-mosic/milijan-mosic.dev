@@ -1,0 +1,7 @@
+app.moss.local {
+    tls internal
+
+    handle {
+        reverse_proxy api:10000
+    }
+}

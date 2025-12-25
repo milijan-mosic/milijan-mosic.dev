@@ -22,16 +22,13 @@ RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 \
 # =========================
 # Runtime stage
 # =========================
-FROM gcr.io/distroless/base-debian12
+FROM alpine:3.23.2
 
 WORKDIR /app
 
 # Copy binary and certs
 COPY --from=builder /app/app /app/app
 COPY --from=builder /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/
-
-# Run as non-root (distroless default)
-USER nonroot:nonroot
 
 EXPOSE 10000
 
