@@ -1,3 +1,7 @@
+www.milijan-mosic.dev {
+    redir https://milijan-mosic.dev{uri} permanent
+}
+
 milijan-mosic.dev {
     tls /etc/caddy/fullchain.pem /etc/caddy/privkey.pem
 
