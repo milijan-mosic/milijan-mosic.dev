@@ -1,3 +1,3 @@
 - Ask for testimonials
-
-- Add ReCaptcha
+- Add ReCaptcha (for ContactMe form)
+- Do a better logo (but same style)
