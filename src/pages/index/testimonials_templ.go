@@ -80,7 +80,7 @@ func testimonialSection(title string, testimonials []Testimonial) templ.Componen
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div id=\"testimonials\" class=\"glass-card p-4 md:p-8 my-8 mx-4 flex flex-col items-center md:w-[400px] lg:w-[550px] xl:w-[1000px]\"><h2 class=\"mt-4 text-2xl font-bold text-center\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div id=\"testimonials\" class=\"glass-card p-8 my-8 mx-8 flex flex-col items-center md:w-[400px] lg:w-[550px] xl:w-[1000px]\"><h2 class=\"mt-4 text-2xl font-bold text-center\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -98,7 +98,7 @@ func testimonialSection(title string, testimonials []Testimonial) templ.Componen
 			return templ_7745c5c3_Err
 		}
 		for _, testimonial := range testimonials {
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "<article class=\"flex flex-col items-center text-center bg-white/25 shadow-xl rounded-xl p-4 md:p-8 mt-16 lg:m-8 w-full lg:w-[250px]\"><img loading=\"lazy\" src=\"")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "<article class=\"flex flex-col items-center text-center bg-white/25 shadow-xl rounded-xl p-8 mt-16 lg:m-8 w-full lg:w-[250px]\"><img loading=\"lazy\" src=\"")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}

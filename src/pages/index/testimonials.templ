@@ -52,11 +52,11 @@ var colleagueEndorsments = []Testimonial{
 }
 
 templ testimonialSection(title string, testimonials []Testimonial) {
-	<div id="testimonials" class="glass-card p-4 md:p-8 my-8 mx-4 flex flex-col items-center md:w-[400px] lg:w-[550px] xl:w-[1000px]">
+	<div id="testimonials" class="glass-card p-8 my-8 mx-8 flex flex-col items-center md:w-[400px] lg:w-[550px] xl:w-[1000px]">
 		<h2 class="mt-4 text-2xl font-bold text-center">{ title }</h2>
 		<div class="flex flex-col items-stretch mb-8 w-full lg:flex-row lg:mb-0 lg:mt-8">
 			for _, testimonial := range testimonials {
-				<article class="flex flex-col items-center text-center bg-white/25 shadow-xl rounded-xl p-4 md:p-8 mt-16 lg:m-8 w-full lg:w-[250px]">
+				<article class="flex flex-col items-center text-center bg-white/25 shadow-xl rounded-xl p-8 mt-16 lg:m-8 w-full lg:w-[250px]">
 					<img
 						loading="lazy"
 						src={ testimonial.Image }

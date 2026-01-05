@@ -127,7 +127,7 @@ func Services() templ.Component {
 			templ_7745c5c3_Var6 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 6, "<section id=\"services\" class=\"glass-card p-4 md:p-8 my-16 mx-4 flex flex-col items-center md:w-[400px] lg:w-[550px] xl:w-[1000px]\"><h2 class=\"mt-4 text-2xl font-bold text-center\">Services</h2><div class=\"flex flex-row flex-wrap mb-8\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 6, "<section id=\"services\" class=\"glass-card p-8 my-16 mx-8 flex flex-col items-center md:w-[400px] lg:w-[550px] xl:w-[1000px]\"><h2 class=\"mt-4 text-2xl font-bold text-center\">Services</h2><div class=\"flex flex-row flex-wrap mb-8\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -135,7 +135,7 @@ func Services() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 7, "</div><div class=\"flex flex-col items-center mb-2\"><p class=\"mt-16 mb-8\">If you’re interested in collaborating or need support on a project, feel free to get in touch :)</p><a href=\"/#contact-me\" class=\"p-2 px-6 mb-4 text-lg bg-sky-800 rounded-full border-sky-500 animate md:px-8 border-1 hover:border-white hover:bg-white hover:text-black hover:cursor-pointer\">Let’s work</a></div></section>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 7, "</div><div class=\"flex flex-col items-center mb-2\"><p class=\"mt-16 mb-8\">If you’re interested in collaborating or need support on a project, feel free to get in touch :)</p><a href=\"/#contact-me\" class=\"p-2 px-8 mb-4 text-lg bg-sky-800 rounded-full border-sky-500 animate border-1 hover:border-white hover:bg-white hover:text-black hover:cursor-pointer\">Let’s work</a></div></section>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
