@@ -19,40 +19,40 @@ type Testimonial struct {
 
 var clientTestimonials = []Testimonial{
 	{
-		Image:   "/static/images/la-persona.webp",
-		Name:    "Ana Petrović",
-		Company: "Product Manager @ TechCorp",
-		Message: "Working with Milijan was a genuinely smooth experience. He understood our requirements quickly, proposed better technical solutions than we initially had, and delivered everything on time. Communication was clear and proactive, which made the whole project stress-free.",
+		Image:   "/static/images/people/aleksandra-bengin.webp",
+		Name:    "Aleksandra Bengin",
+		Company: "Cellist @ RTS Symphony Orchestra",
+		Message: "I would especially like to thank Milijan Mosić for working on my website and for a very professional and creative approach. It was a wonderful cooperation and he fulfilled all my wishes related to the website. I highly recommend cooperation with him if you also want to have your own online portfolio in the form of a website.",
 	},
 	{
-		Image:   "/static/images/le-person.webp",
-		Name:    "Marko Ilić",
-		Company: "Startup Founder @ ACME",
+		Image:   "/static/images/people/james-randolph.webp",
+		Name:    "James Randolph",
+		Company: "Product Owner @ CyberPopUp",
 		Message: "What stood out the most was Milijan’s ability to think beyond just writing code. He helped us shape the architecture, pointed out potential scaling issues early, and delivered a clean, maintainable solution. I would gladly work with him again.",
 	},
 	{
-		Image:   "/static/images/la-persona.webp",
-		Name:    "Laura Thompson",
-		Company: "Operations Lead @ XYZ Inc.",
+		Image:   "/static/images/people/sigmund-koch.webp",
+		Name:    "Sigmund Koch",
+		Company: "Startup Founder @ Alloqis",
 		Message: "Milijan combines strong backend expertise with a very pragmatic mindset. He doesn’t overcomplicate things and always focuses on what brings real value. The end result was reliable, fast, and easy to extend.",
 	},
 }
 
 var colleagueEndorsments = []Testimonial{
 	{
-		Image:   "/static/images/le-person.webp",
-		Name:    "Nikola Jovanović",
+		Image:   "/static/images/people/mladen-lukajic.webp",
+		Name:    "Mladen Lukajić",
 		Company: "Software Engineer @ IT Engine",
 		Message: "Milijan is one of those engineers who truly understands systems, not just frameworks. He’s great at breaking down complex problems and explaining them clearly to the rest of the team.",
 	},
 	{
-		Image:   "/static/images/la-persona.webp",
-		Name:    "Sarah Müller",
+		Image:   "/static/images/people/nikola-jovanovic.webp",
+		Name:    "Nikola Jovanović",
 		Company: "DevOps Engineer @ Recall Taxi",
 		Message: "I’ve worked with Milijan on infrastructure-heavy projects, and his DevOps mindset really shows. He cares about deployments, monitoring, and reliability just as much as application logic.",
 	},
 	{
-		Image:   "/static/images/le-person.webp",
+		Image:   "/static/images/people/ivan-kostic.webp",
 		Name:    "Ivan Kostić",
 		Company: "Backend Engineer @ Tangled Group Inc.",
 		Message: "Milijan has a strong sense for clean architecture and performance. He’s disciplined, curious, and constantly improving his skills, which makes him a great teammate on any serious engineering project.",
