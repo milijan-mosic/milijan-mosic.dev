@@ -63,7 +63,7 @@ func respondJSON(w http.ResponseWriter, code int, status string, message string)
 		Message: message,
 	})
 	if err != nil {
-		panic(err)
+		fmt.Println(err)
 	}
 }
 
@@ -110,7 +110,8 @@ func isValidEmail(email string) bool {
 func saveToDb(newRequest ContactRequest) {
 	db, err := gorm.Open(sqlite.Open(dbPath), &gorm.Config{})
 	if err != nil {
-		panic("failed to connect database")
+		fmt.Println("failed to connect database")
+		return
 	}
 
 	ctx := context.Background()
@@ -130,12 +131,17 @@ func saveToDb(newRequest ContactRequest) {
 func PrintMails() {
 	db, err := gorm.Open(sqlite.Open(dbPath), &gorm.Config{})
 	if err != nil {
-		panic("failed to connect database")
+		fmt.Println("failed to connect database")
+		return
 	}
 
 	ctx := context.Background()
 
 	requests, err := gorm.G[ProjectRequest](db).Where("from_site = ?", "Moss").Find(ctx)
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
 	for _, request := range requests {
 		fmt.Println(request)
 	}

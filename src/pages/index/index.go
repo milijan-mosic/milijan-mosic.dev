@@ -1,6 +1,7 @@
 package pages
 
 import (
+	"fmt"
 	"net/http"
 )
 
@@ -9,6 +10,7 @@ func Homepage(w http.ResponseWriter, r *http.Request) {
 
 	err := Index().Render(r.Context(), w)
 	if err != nil {
-		panic(err)
+		fmt.Println(err)
+		return
 	}
 }
