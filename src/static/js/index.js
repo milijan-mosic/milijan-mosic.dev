@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
     e.preventDefault();
     button.disabled = true;
     button.className =
-      "p-2 px-4 mb-4 text-lg text-black bg-yellow-300 rounded-full cursor-not-allowed animate";
+      "p-2 px-8 mb-4 text-lg text-black bg-yellow-300 rounded-full cursor-not-allowed animate";
     button.innerHTML = "Sending...";
 
     const payload = {
@@ -38,19 +38,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
       status.textContent = "Request sent successfully!";
       status.className =
-        "p-8 mt-4 mb-8 text-xl text-center text-green-500 rounded-full bg-black/50";
+        "p-4 px-8 mt-4 mb-8 text-xl text-center text-green-500 rounded-full bg-black/50";
 
       form.reset();
     } catch (err) {
       status.textContent = "Something went wrong. Try again later.";
       status.className =
-        "p-8 mt-4 mb-8 text-xl text-center text-red-500 rounded-full bg-black/50";
+        "p-4 px-8 mt-4 mb-8 text-xl text-center text-red-500 rounded-full bg-black/50";
     }
 
     button.disabled = false;
     button.className =
-      "p-2 px-4 mb-4 text-lg bg-sky-800 rounded-full border-sky-500 animate border-1 hover:border-white hover:bg-white hover:text-black hover:cursor-pointer";
-    button.innerHTML = "Send Request";
+      "p-2 px-8 mb-4 text-lg bg-sky-800 rounded-full border-sky-500 animate border-1 hover:border-white hover:bg-white hover:text-black hover:cursor-pointer";
+    button.innerHTML = "Send request";
   });
 });
 
