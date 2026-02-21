@@ -1,7 +1,7 @@
 package pages
 
 import (
-	"fmt"
+	"log"
 	"net/http"
 )
 
@@ -10,7 +10,7 @@ func Homepage(w http.ResponseWriter, r *http.Request) {
 
 	err := Index().Render(r.Context(), w)
 	if err != nil {
-		fmt.Println(err)
+		log.Fatalln(err)
 		return
 	}
 }

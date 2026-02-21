@@ -1,7 +1,7 @@
 package utils
 
 import (
-	"fmt"
+	"log"
 	"net/http"
 	"strings"
 
@@ -10,7 +10,7 @@ import (
 
 func FileServer(r chi.Router, path string, root http.FileSystem) {
 	if strings.ContainsAny(path, "{}*") {
-		fmt.Println("FileServer does not permit any URL parameters.")
+		log.Println("FileServer does not permit any URL parameters.")
 		return
 	}
 

@@ -1,7 +1,7 @@
 package main
 
 import (
-	"fmt"
+	"log"
 	"net/http"
 	"os"
 	"path/filepath"
@@ -11,9 +11,17 @@ import (
 	"github.com/go-chi/chi/v5/middleware"
 	"github.com/go-chi/httprate"
 
+	"my-website/controllers"
 	pages "my-website/pages/index"
 	"my-website/utils"
 )
+
+func newRouter() http.Handler {
+	r := chi.NewRouter()
+	r.Post("/", controllers.HandleContact)
+	r.Get("/email/print", controllers.PrintEmails)
+	return r
+}
 
 func main() {
 	app := chi.NewRouter()
@@ -32,7 +40,7 @@ func main() {
 
 	app.Get("/", pages.Homepage)
 	app.Route("/api/contact", func(cr chi.Router) {
-		cr.Mount("/", utils.ContactRouter())
+		cr.Mount("/", newRouter())
 	})
 
 	app.Get("/robots.txt", func(w http.ResponseWriter, r *http.Request) {
@@ -66,12 +74,12 @@ func main() {
 	filesDir := http.Dir(filepath.Join(workDir, "static"))
 	utils.FileServer(app, "/static", filesDir)
 
-	utils.PrintMails()
+	utils.SetupDatabase()
 
 	port := "20000"
-	fmt.Printf("Listening on port: %s\n", port)
+	log.Printf("Listening on port: %s\n", port)
 	err := http.ListenAndServe(":"+port, app)
 	if err != nil {
-		fmt.Println(err)
+		log.Fatalln(err)
 	}
 }
