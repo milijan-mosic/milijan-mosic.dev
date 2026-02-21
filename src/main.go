@@ -16,13 +16,6 @@ import (
 	"my-website/utils"
 )
 
-func newRouter() http.Handler {
-	r := chi.NewRouter()
-	r.Post("/", controllers.HandleContact)
-	r.Get("/email/print", controllers.PrintEmails)
-	return r
-}
-
 func main() {
 	app := chi.NewRouter()
 
@@ -38,9 +31,10 @@ func main() {
 	app.Use(middleware.Heartbeat("/health"))
 	app.Use(middleware.Recoverer)
 
-	app.Get("/", pages.Homepage)
-	app.Route("/api/contact", func(cr chi.Router) {
-		cr.Mount("/", newRouter())
+	app.Route("/", func(r chi.Router) {
+		r.Get("/", pages.Homepage)
+		r.Post("/api/contact", controllers.HandleContact)
+		r.Get("/email/print", controllers.PrintEmails)
 	})
 
 	app.Get("/robots.txt", func(w http.ResponseWriter, r *http.Request) {
