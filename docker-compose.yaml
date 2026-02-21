@@ -28,6 +28,11 @@ services:
       - server
     networks:
       - heartbit
+    volumes:
+      - data:/data
+
+volumes:
+  data:
 
 networks:
   heartbit:

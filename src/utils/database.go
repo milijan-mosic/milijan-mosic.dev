@@ -10,7 +10,7 @@ import (
 	"gorm.io/gorm"
 )
 
-const DBPath = "./emails.db"
+const DBPath = "/data/emails.db"
 
 func GetEnvVariable(key string) string {
 	value := os.Getenv(key)
