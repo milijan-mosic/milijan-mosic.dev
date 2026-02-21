@@ -6,6 +6,8 @@ import (
 	"my-website/utils"
 	"net/http"
 
+	"encoding/json"
+
 	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"
 )
@@ -30,8 +32,13 @@ func PrintEmails(w http.ResponseWriter, r *http.Request) {
 		log.Fatalln(err)
 		return
 	}
-	for _, request := range requests {
-		log.Println(request)
+
+	prettyJSON, err := json.MarshalIndent(requests, "", "  ")
+	if err != nil {
+		log.Println("failed to marshal:", err)
+	} else {
+		log.Println(string(prettyJSON))
 	}
+
 	utils.RespondJSON(w, http.StatusOK, "success", "Printed out")
 }
