@@ -6,17 +6,11 @@ import (
 	"os"
 
 	"github.com/google/uuid"
-	"github.com/joho/godotenv"
 	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"
 )
 
 func GetEnvVariable(key string) string {
-	err := godotenv.Load()
-	if err != nil {
-		log.Fatalln("No .env file found (skipping)")
-	}
-
 	value := os.Getenv(key)
 	if value == "" {
 		log.Fatalf("Missing required environment variable: %s", key)
