@@ -135,7 +135,7 @@ func Services() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 7, "</div><div class=\"flex flex-col items-center mb-2\"><p class=\"mt-16 mb-8\">If you’re interested in collaborating or need support on a project, feel free to get in touch :)</p><a href=\"/#contact-me\" class=\"p-2 px-8 mb-4 text-lg bg-sky-800 rounded-full border-sky-500 animate border-1 hover:border-white hover:bg-white hover:text-black hover:cursor-pointer\">Let’s work</a></div></section>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 7, "</div><div class=\"flex flex-col items-center mb-2\"><p class=\"mt-16 mb-8\">If you’re interested in collaborating or need support on a project, feel free to get in touch</p><a href=\"/#contact-me\" class=\"p-2 px-8 mb-4 text-lg bg-sky-800 rounded-full border-sky-500 animate border-1 hover:border-white hover:bg-white hover:text-black hover:cursor-pointer\">Let’s work</a></div></section>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
