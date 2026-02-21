@@ -20,6 +20,8 @@ services:
     build:
       context: ./src
       dockerfile: docker/Dockerfile
+    env_file:
+      - ./src/.env
     ports:
       - "20000:20000"
     depends_on:

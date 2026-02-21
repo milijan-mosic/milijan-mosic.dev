@@ -10,7 +10,6 @@ import (
 	"github.com/go-chi/chi/v5"
 	"github.com/go-chi/chi/v5/middleware"
 	"github.com/go-chi/httprate"
-	"github.com/joho/godotenv"
 
 	"my-website/controllers"
 	pages "my-website/pages/index"
@@ -69,15 +68,11 @@ func main() {
 	filesDir := http.Dir(filepath.Join(workDir, "static"))
 	utils.FileServer(app, "/static", filesDir)
 
-	err := godotenv.Load()
-	if err != nil {
-		log.Fatalln("No .env file found (skipping)")
-	}
 	utils.SetupDatabase()
 
 	port := "20000"
 	log.Printf("Listening on port: %s\n", port)
-	err = http.ListenAndServe(":"+port, app)
+	err := http.ListenAndServe(":"+port, app)
 	if err != nil {
 		log.Fatalln(err)
 	}
