@@ -10,6 +10,8 @@ import (
 	"gorm.io/gorm"
 )
 
+const DBPath = "./emails.db"
+
 func GetEnvVariable(key string) string {
 	value := os.Getenv(key)
 	if value == "" {
@@ -20,13 +22,7 @@ func GetEnvVariable(key string) string {
 }
 
 func SaveToDb(newRequest ContactRequest) {
-	dbPath := GetEnvVariable("DATABASE_PATH")
-	if dbPath == "" {
-		log.Fatalln("Database path is empty!")
-		return
-	}
-
-	db, err := gorm.Open(sqlite.Open(dbPath), &gorm.Config{})
+	db, err := gorm.Open(sqlite.Open(DBPath), &gorm.Config{})
 	if err != nil {
 		log.Fatalln("failed to connect database")
 		return
@@ -47,13 +43,7 @@ func SaveToDb(newRequest ContactRequest) {
 }
 
 func SetupDatabase() {
-	dbPath := GetEnvVariable("DATABASE_PATH")
-	if dbPath == "" {
-		log.Fatalln("Database path is empty!")
-		return
-	}
-
-	db, err := gorm.Open(sqlite.Open(dbPath), &gorm.Config{})
+	db, err := gorm.Open(sqlite.Open(DBPath), &gorm.Config{})
 	if err != nil {
 		log.Fatalln("failed to connect database")
 		return

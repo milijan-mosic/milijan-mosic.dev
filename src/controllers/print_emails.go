@@ -13,13 +13,7 @@ import (
 )
 
 func PrintEmails(w http.ResponseWriter, r *http.Request) {
-	dbPath := utils.GetEnvVariable("DATABASE_PATH")
-	if dbPath == "" {
-		log.Fatalln("Database path is empty!")
-		return
-	}
-
-	db, err := gorm.Open(sqlite.Open(dbPath), &gorm.Config{})
+	db, err := gorm.Open(sqlite.Open(utils.DBPath), &gorm.Config{})
 	if err != nil {
 		log.Fatalln("failed to connect database")
 		return
