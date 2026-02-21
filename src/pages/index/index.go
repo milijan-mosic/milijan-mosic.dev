@@ -10,7 +10,7 @@ func Homepage(w http.ResponseWriter, r *http.Request) {
 
 	err := Index().Render(r.Context(), w)
 	if err != nil {
-		log.Fatalln(err)
+		log.Fatalln("Failed to load homepage:", err)
 		return
 	}
 }

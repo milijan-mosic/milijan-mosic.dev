@@ -70,8 +70,8 @@ func sendEmail(name, email, message string) {
 
 	sent, err := client.Emails.Send(params)
 	if err != nil {
-		log.Fatalln(err.Error())
+		log.Fatalln("Sending email failed:", err)
 		return
 	}
-	log.Println(sent.Id)
+	log.Printf("Email sent successfully, ID: %s", sent.Id)
 }

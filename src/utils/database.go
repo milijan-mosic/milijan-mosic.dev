@@ -12,6 +12,8 @@ import (
 
 const DBPath = "/data/emails.db"
 
+var DB *gorm.DB
+
 func GetEnvVariable(key string) string {
 	value := os.Getenv(key)
 	if value == "" {
@@ -22,16 +24,9 @@ func GetEnvVariable(key string) string {
 }
 
 func SaveToDb(newRequest ContactRequest) {
-	db, err := gorm.Open(sqlite.Open(DBPath), &gorm.Config{})
-	if err != nil {
-		log.Fatalln("failed to connect database")
-		return
-	}
-
 	ctx := context.Background()
-	db.AutoMigrate(&ProjectRequest{})
 
-	err = gorm.G[ProjectRequest](db).Create(ctx, &ProjectRequest{
+	err := gorm.G[ProjectRequest](DB).Create(ctx, &ProjectRequest{
 		RequestId: uuid.New().String(),
 		FromSite:  newRequest.FromSite,
 		Name:      newRequest.Name,
@@ -40,14 +35,23 @@ func SaveToDb(newRequest ContactRequest) {
 		Replied:   false,
 		Note:      "",
 	})
+	if err != nil {
+		log.Fatalln("Failed to save to database:", err)
+	}
 }
 
 func SetupDatabase() {
-	db, err := gorm.Open(sqlite.Open(DBPath), &gorm.Config{})
+	var err error
+
+	DB, err = gorm.Open(sqlite.Open(DBPath), &gorm.Config{})
 	if err != nil {
-		log.Fatalln("failed to connect database")
-		return
+		log.Fatalln("Failed to connect database:", err)
 	}
 
-	db.AutoMigrate(&ProjectRequest{})
+	err = DB.AutoMigrate(&ProjectRequest{})
+	if err != nil {
+		log.Fatalln("failed to migrate:", err)
+	}
+
+	log.Println("Database connected successfully")
 }

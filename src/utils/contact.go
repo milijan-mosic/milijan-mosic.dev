@@ -45,6 +45,6 @@ func RespondJSON(w http.ResponseWriter, code int, status string, message string)
 		Message: message,
 	})
 	if err != nil {
-		log.Fatalln(err)
+		log.Fatalln("Failed to marshall response:", err)
 	}
 }
