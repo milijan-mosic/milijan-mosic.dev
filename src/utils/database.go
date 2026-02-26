@@ -8,11 +8,12 @@ import (
 	"github.com/google/uuid"
 	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"
+
+	_ "modernc.org/sqlite"
 )
 
-const DBPath = "/data/emails.db"
-
-// const DBPath = "./data/emails.db" // ONLY FOR LOCAL USAGE
+// const DBPath = "/data/emails.db"
+var DBPath = ""
 
 var DB *gorm.DB
 
@@ -45,7 +46,9 @@ func SaveToDb(newRequest ContactRequest) {
 func SetupDatabase() {
 	var err error
 
-	DB, err = gorm.Open(sqlite.Open(DBPath), &gorm.Config{})
+	DBPath = GetEnvVariable("DATABASE_PATH")
+
+	DB, err = gorm.Open(sqlite.Open(DBPath+"?_foreign_keys=on"), &gorm.Config{})
 	if err != nil {
 		log.Fatalln("Failed to connect database:", err)
 	}

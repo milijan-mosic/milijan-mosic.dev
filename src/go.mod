@@ -8,11 +8,22 @@ require (
 	github.com/go-chi/httprate v0.15.0
 	github.com/google/uuid v1.6.0
 	github.com/joho/godotenv v1.5.1
-	github.com/resend/resend-go/v3 v3.1.0
+	github.com/resend/resend-go/v3 v3.1.1
 	gorm.io/gorm v1.31.1
+	modernc.org/sqlite v1.46.1
 )
 
-require github.com/mattn/go-sqlite3 v1.14.34 // indirect
+require (
+	github.com/dustin/go-humanize v1.0.1 // indirect
+	github.com/mattn/go-isatty v0.0.20 // indirect
+	github.com/mattn/go-sqlite3 v1.14.34 // indirect
+	github.com/ncruces/go-strftime v1.0.0 // indirect
+	github.com/remyoudompheng/bigfft v0.0.0-20230129092748-24d4a6f8daec // indirect
+	golang.org/x/exp v0.0.0-20260218203240-3dfff04db8fa // indirect
+	modernc.org/libc v1.68.0 // indirect
+	modernc.org/mathutil v1.7.1 // indirect
+	modernc.org/memory v1.11.0 // indirect
+)
 
 require (
 	github.com/jinzhu/inflection v1.0.0 // indirect
