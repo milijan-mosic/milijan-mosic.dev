@@ -31,10 +31,17 @@ templ Index() {
 			<link rel="manifest" href="/site.webmanifest"/>
 		</head>
 		<body>
-			<div class="fixed w-screen h-screen">
-				<canvas id="canvas" class="overflow-hidden fixed top-0 right-0 bottom-0 left-0 touch-action-none"></canvas>
-			</div>
+			// I
+			// <div class="fixed w-screen h-screen">
+			// 	<canvas id="canvas" class="overflow-hidden fixed top-0 right-0 bottom-0 left-0 touch-action-none"></canvas>
+			// </div>
+
+			// II
 			// <img fetchpriority="high" width="1920" height="1080" src="/static/images/background.webp" alt="Background of the website" class="fixed w-screen h-screen top-0 object-cover object-[20%] lg:object-none"/>
+			
+			// III
+			@ShaderCanvas("background")
+
 			<div class="flex flex-col items-center">
 				@components.Navbar()
 				@Base()
@@ -46,7 +53,11 @@ templ Index() {
 				@ContactMe()
 				@components.Footer()
 			</div>
-			<script nonce={ generateNonce() } defer type="module" src="/static/js/index.min.js"></script>
+			
+			// I
+			// <script nonce={ generateNonce() } defer type="module" src="/static/js/index.min.js"></script>
+			
+			<script nonce={ generateNonce() } type="module" src="/static/js/dist/shader.js"></script>
 		</body>
 	</html>
 }
