@@ -9,14 +9,14 @@ require (
 	github.com/google/uuid v1.6.0
 	github.com/joho/godotenv v1.5.1
 	github.com/resend/resend-go/v3 v3.1.1
-	gorm.io/gorm v1.31.1
+	gorm.io/driver/sqlite v1.6.0
+	gorm.io/gorm v1.30.5
 	modernc.org/sqlite v1.46.1
 )
 
 require (
 	github.com/dustin/go-humanize v1.0.1 // indirect
 	github.com/mattn/go-isatty v0.0.20 // indirect
-	github.com/mattn/go-sqlite3 v1.14.22 // indirect
 	github.com/ncruces/go-strftime v1.0.0 // indirect
 	github.com/remyoudompheng/bigfft v0.0.0-20230129092748-24d4a6f8daec // indirect
 	golang.org/x/exp v0.0.0-20260218203240-3dfff04db8fa // indirect
@@ -29,8 +29,8 @@ require (
 	github.com/jinzhu/inflection v1.0.0 // indirect
 	github.com/jinzhu/now v1.1.5 // indirect
 	github.com/klauspost/cpuid/v2 v2.3.0 // indirect
+	github.com/mattn/go-sqlite3 v1.14.22 // indirect
 	github.com/zeebo/xxh3 v1.1.0 // indirect
 	golang.org/x/sys v0.41.0 // indirect
 	golang.org/x/text v0.34.0 // indirect
-	gorm.io/driver/sqlite v1.6.0
 )
