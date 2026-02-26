@@ -2,6 +2,7 @@ import * as THREE from "three";
 
 let camera, scene, renderer;
 let uniforms;
+const multiColor = false;
 
 const vertexShader = `
 varying vec2 vUv;
@@ -15,6 +16,7 @@ void main() {
 const fragmentShader = `
 varying vec2 vUv;
 uniform float time;
+uniform vec3 uColor;
 
 void main() {
   vec2 p = -1.0 + 2.0 * vUv;
@@ -41,11 +43,12 @@ void main() {
   d = r / 350.0;
   d += sin( d * d * 8.0 ) * 0.52;
   f = ( sin( a * g ) + 1.0 ) / 2.0;
-  gl_FragColor = vec4(
-    vec3( f * i / 1.6, i / 2.0 + d / 13.0, i ) * d * p.x +
-    vec3( i / 1.3 + d / 8.0, i / 2.0 + d / 18.0, i ) * d * ( 1.0 - p.x ),
-    1.0
-  );
+
+  vec3 baseColor =
+  vec3( f * i / 1.6, i / 2.0 + d / 13.0, i ) * d * p.x +
+  vec3( i / 1.3 + d / 8.0, i / 2.0 + d / 18.0, i ) * d * ( 1.0 - p.x );
+  
+  gl_FragColor = vec4(baseColor * uColor, 1.0);
 }
 `;
 
@@ -59,6 +62,9 @@ export function initShader(containerId) {
 
   uniforms = {
     time: { value: 1.0 },
+    uColor: { value: new THREE.Color("#00a6f4") },
+    // uColor: { value: new THREE.Color("#744FC6") },
+    // uColor: { value: new THREE.Color(0x00ffff) },
   };
 
   const material = new THREE.ShaderMaterial({
@@ -86,7 +92,17 @@ function onWindowResize() {
 }
 
 function animate() {
+  if (multiColor) {
+    const t = performance.now() / 7000;
+
+    uniforms.uColor.value.setRGB(
+      Math.sin(t) * 0.5 + 0.5,
+      Math.sin(t + 2.0) * 0.5 + 0.5,
+      Math.sin(t + 4.0) * 0.5 + 0.5,
+    );
+  }
   uniforms.time.value = performance.now() / 1000;
+
   renderer.render(scene, camera);
 }
 
