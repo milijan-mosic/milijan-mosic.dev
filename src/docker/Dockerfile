@@ -3,20 +3,20 @@
 # =========================
 FROM golang:1.25-alpine3.23 AS builder
 
-# Only needed runtime certs + git (for private modules)
-RUN apk add --no-cache ca-certificates git
+# Install build deps for CGO
+RUN apk add --no-cache ca-certificates git gcc musl-dev sqlite-dev
 
 WORKDIR /app
 
-# Copy go.mod/go.sum first for caching
+# Copy go.mod/go.sum first (better caching)
 COPY go.mod go.sum ./
 RUN go mod download
 
 # Copy source
 COPY . .
 
-# Build static binary
-RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 \
+# Build binary with CGO enabled
+RUN CGO_ENABLED=1 GOOS=linux GOARCH=amd64 \
     go build -ldflags="-s -w" -o app
 
 # =========================
@@ -27,8 +27,8 @@ FROM alpine:3.23
 WORKDIR /app
 RUN mkdir -p /data
 
-# Only runtime deps
-# RUN apk add --no-cache ca-certificates
+# Runtime deps
+RUN apk add --no-cache ca-certificates sqlite-libs
 
 # Copy binary + static files + certs
 COPY --from=builder /app/app /app/app
