@@ -1,34 +1,36 @@
 # =========================
 # Build stage
 # =========================
-FROM golang:1.25-alpine AS builder
+FROM golang:1.25-alpine3.23 AS builder
 
-# Install certs & git (for private/public modules)
-RUN apk add --no-cache ca-certificates git gcc musl-dev sqlite-dev sqlite-libs
+# Only needed runtime certs + git (for private modules)
+RUN apk add --no-cache ca-certificates git
 
 WORKDIR /app
 
-# Copy only go.mod/go.sum first (better caching)
+# Copy go.mod/go.sum first for caching
 COPY go.mod go.sum ./
 RUN go mod download
 
-# Copy the rest of the source
+# Copy source
 COPY . .
 
-# Build a static binary
-RUN CGO_ENABLED=1 GOOS=linux GOARCH=amd64 \
-    go build -ldflags="-s -w" -o app
+# Build static binary
+RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 \
+    go build -ldflags="-s -w" -o app ./...
 
 # =========================
 # Runtime stage
 # =========================
 FROM alpine:3.23
 
-# RUN apk add --no-cache ca-certificates sqlite-libs
-
 WORKDIR /app
+RUN mkdir -p /data
 
-# Copy binary and certs
+# Only runtime deps
+RUN apk add --no-cache ca-certificates
+
+# Copy binary + static files + certs
 COPY --from=builder /app/app /app/app
 COPY --from=builder /app/static /app/static
 COPY --from=builder /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/
