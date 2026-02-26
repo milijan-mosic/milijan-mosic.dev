@@ -3,12 +3,19 @@ document.addEventListener("DOMContentLoaded", () => {
   const status = document.getElementById("contact-status");
   const button = document.getElementById("submit-button");
 
+  let statusTimeout;
+
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
+
+    if (statusTimeout) {
+      clearTimeout(statusTimeout);
+    }
+
     button.disabled = true;
     button.className =
       "p-2 px-8 mb-4 text-lg text-black bg-yellow-300 rounded-full cursor-not-allowed animate";
-    button.innerHTML = "Sending...";
+    button.textContent = "Sending...";
 
     const payload = {
       name: form.name.value.trim(),
@@ -37,10 +44,15 @@ document.addEventListener("DOMContentLoaded", () => {
         "p-4 px-8 mt-4 mb-8 text-xl text-center text-red-500 rounded-full bg-black/50";
     }
 
+    statusTimeout = setTimeout(() => {
+      status.textContent = "";
+      status.className = "";
+    }, 10000);
+
     button.disabled = false;
     button.className =
       "p-2 px-8 mb-4 text-lg bg-sky-800 rounded-full border-sky-500 animate border-1 hover:border-white hover:bg-white hover:text-black hover:cursor-pointer";
-    button.innerHTML = "Send request";
+    button.textContent = "Send request";
   });
 });
 
