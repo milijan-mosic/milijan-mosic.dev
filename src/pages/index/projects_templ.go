@@ -128,7 +128,7 @@ func RenderProjects(projects []Project) templ.Component {
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 5, "</p><p class=\"mb-8 p-8\">")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 5, "</p><p class=\"p-8 mb-8\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -225,7 +225,7 @@ func Projects() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 14, "</div><a href=\"/#contact-me\" class=\"p-2 px-4 md:px-8 mt-8 mb-4 text-lg bg-sky-800 rounded-full border-sky-500 animate border-1 hover:border-white hover:bg-white hover:text-black hover:cursor-pointer\">Let’s build something</a></section>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 14, "</div><a href=\"/#contact-me\" class=\"p-2 px-4 mt-8 mb-4 text-lg bg-sky-800 rounded-full border-sky-500 md:px-8 animate border-1 hover:border-white hover:bg-white hover:text-black hover:cursor-pointer\">Let’s build something</a></section>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
