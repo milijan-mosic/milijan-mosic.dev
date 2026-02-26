@@ -3,8 +3,6 @@ package main
 import (
 	"log"
 	"net/http"
-	"os"
-	"path/filepath"
 	"time"
 
 	"github.com/go-chi/chi/v5"
@@ -22,9 +20,7 @@ func main() {
 	app.Use(middleware.RealIP)
 	app.Use(middleware.RequestID)
 	app.Use(middleware.Logger)
-	app.Use(middleware.AllowContentEncoding("gzip"))
-	app.Use(middleware.AllowContentType("application/json", "text/html", "text/javascript", "text/css", "text/plain"))
-	app.Use(middleware.Compress(5, "application/json", "text/html", "text/javascript", "text/css", "text/plain"))
+	app.Use(middleware.Compress(5))
 	app.Use(middleware.CleanPath)
 	app.Use(httprate.LimitByIP(1000, 1*time.Minute))
 	app.Use(middleware.Timeout(5 * time.Second))
@@ -64,9 +60,8 @@ func main() {
 		http.ServeFile(w, r, "./static/favicon/site.webmanifest")
 	})
 
-	workDir, _ := os.Getwd()
-	filesDir := http.Dir(filepath.Join(workDir, "static"))
-	utils.FileServer(app, "/static", filesDir)
+	fs := http.FileServer(http.Dir("./static"))
+	app.Handle("/static/*", http.StripPrefix("/static/", fs))
 
 	utils.SetupDatabase()
 
