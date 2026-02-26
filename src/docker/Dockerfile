@@ -17,7 +17,7 @@ COPY . .
 
 # Build static binary
 RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 \
-    go build -ldflags="-s -w" -o app ./...
+    go build -ldflags="-s -w" -o app
 
 # =========================
 # Runtime stage
@@ -28,7 +28,7 @@ WORKDIR /app
 RUN mkdir -p /data
 
 # Only runtime deps
-RUN apk add --no-cache ca-certificates
+# RUN apk add --no-cache ca-certificates
 
 # Copy binary + static files + certs
 COPY --from=builder /app/app /app/app
