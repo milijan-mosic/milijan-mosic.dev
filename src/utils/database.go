@@ -10,7 +10,9 @@ import (
 	"gorm.io/gorm"
 )
 
-const DBPath = "./data/emails.db" // ONLY FOR LOCAL USAGE
+const DBPath = "/data/emails.db"
+
+// const DBPath = "./data/emails.db" // ONLY FOR LOCAL USAGE
 
 var DB *gorm.DB
 
