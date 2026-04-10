@@ -41,3 +41,7 @@ milijan-mosic.dev {
         reverse_proxy my_app:20000
     }
 }
+
+notes.milijan-mosic.dev {
+    reverse_proxy silverbullet:3000
+}

@@ -12,6 +12,7 @@ services:
       - ./certs/privkey.pem:/etc/caddy/privkey.pem
     networks:
       - heartbit
+      - caddy_shared
 
   my_app:
     image: my_app:latest
@@ -35,4 +36,6 @@ volumes:
   data:
 
 networks:
+  caddy_shared:
+    external: true
   heartbit:
