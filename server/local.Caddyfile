@@ -1,15 +1,15 @@
 app.moss.local {
-    tls internal
+	tls internal
 
-    header {
-        Referrer-Policy "no-referrer"
-        Cache-Control "max-age=259200"
-        X-XSS-Protection "1; mode=block"
-        X-Content-Type-Options "nosniff"
-        Cross-Origin-Opener-Policy "same-origin"
-        Strict-Transport-Security "max-age=63072000; includeSubDomains; preload"
-        X-Frame-Options "deny"
-        Content-Security-Policy "
+	header {
+		Referrer-Policy "no-referrer"
+		Cache-Control "max-age=259200"
+		X-XSS-Protection "1; mode=block"
+		X-Content-Type-Options "nosniff"
+		Cross-Origin-Opener-Policy "same-origin"
+		Strict-Transport-Security "max-age=63072000; includeSubDomains; preload"
+		X-Frame-Options "deny"
+		Content-Security-Policy "
             default-src 'self';
             script-src 'self' https://www.googletagmanager.com;
             connect-src 'self' https://www.google-analytics.com;
@@ -24,16 +24,16 @@ app.moss.local {
             frame-ancestors 'none';
             require-trusted-types-for 'script';
         "
-        -Last-Modified
-        -Server
-    }
+		-Last-Modified
+		-Server
+	}
 
-    route {
-        header           Cache-Control max-age=259200
-        header /static/* Cache-Control max-age=259200
-    }
+	route {
+		header Cache-Control max-age=259200
+		header /static/* Cache-Control max-age=259200
+	}
 
-    handle {
-        reverse_proxy my_app:20000
-    }
+	handle {
+		reverse_proxy my_app:20000
+	}
 }

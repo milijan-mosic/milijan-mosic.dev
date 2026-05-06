@@ -1,19 +1,17 @@
 www.milijan-mosic.dev {
-    redir https://milijan-mosic.dev{uri} permanent
+	redir https://milijan-mosic.dev{uri} permanent
 }
 
 milijan-mosic.dev {
-    tls /etc/caddy/fullchain.pem /etc/caddy/privkey.pem
-
-    header {
-        Referrer-Policy "no-referrer"
-        Cache-Control "max-age=259200"
-        X-XSS-Protection "1; mode=block"
-        X-Content-Type-Options "nosniff"
-        Cross-Origin-Opener-Policy "same-origin"
-        Strict-Transport-Security "max-age=63072000; includeSubDomains; preload"
-        X-Frame-Options "deny"
-        Content-Security-Policy "
+	header {
+		Referrer-Policy "no-referrer"
+		Cache-Control "max-age=259200"
+		X-XSS-Protection "1; mode=block"
+		X-Content-Type-Options "nosniff"
+		Cross-Origin-Opener-Policy "same-origin"
+		Strict-Transport-Security "max-age=63072000; includeSubDomains; preload"
+		X-Frame-Options "deny"
+		Content-Security-Policy "
             default-src 'self';
             script-src 'self' https://www.googletagmanager.com;
             connect-src 'self' https://www.google-analytics.com;
@@ -28,20 +26,24 @@ milijan-mosic.dev {
             frame-ancestors 'none';
             require-trusted-types-for 'script';
         "
-        -Last-Modified
-        -Server
-    }
+		-Last-Modified
+		-Server
+	}
 
-    route {
-        header           Cache-Control max-age=259200
-        header /static/* Cache-Control max-age=259200
-    }
+	route {
+		header Cache-Control max-age=259200
+		header /static/* Cache-Control max-age=259200
+	}
 
-    handle {
-        reverse_proxy my_app:20000
-    }
+	handle {
+		reverse_proxy my_app:20000
+	}
 }
 
 notes.milijan-mosic.dev {
-    reverse_proxy silverbullet:3000
+	basicauth {
+		milijan $2a$14$dXzLXPsjesFK8vZK3ESxJuWcIHb2zX6IqyaOVoNUKkoYeNp6y/mnm
+	}
+
+	reverse_proxy silverbullet:3000
 }

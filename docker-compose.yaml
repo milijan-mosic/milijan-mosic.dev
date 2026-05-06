@@ -6,10 +6,11 @@ services:
     ports:
       - 80:80
       - 443:443
+      - 443:443/udp
     volumes:
       - ./server/Caddyfile:/etc/caddy/Caddyfile
-      - ./certs/fullchain.pem:/etc/caddy/fullchain.pem
-      - ./certs/privkey.pem:/etc/caddy/privkey.pem
+      - caddy_data:/data        # certs live here
+      - caddy_config:/config
     networks:
       - heartbit
       - caddy_shared
@@ -34,6 +35,8 @@ services:
 
 volumes:
   data:
+  caddy_data:
+  caddy_config:
 
 networks:
   caddy_shared:
