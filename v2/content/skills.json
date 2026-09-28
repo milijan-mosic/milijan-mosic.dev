@@ -1,0 +1,59 @@
+{
+  "title": "Skills HMRTEST",
+  "groups": [
+    {
+      "title": "Frontend",
+      "skills": [
+        { "icon": "react", "name": "React" },
+        { "icon": "typescript", "name": "TypeScript" },
+        { "icon": "tailwind-css", "name": "Tailwind CSS" },
+        { "icon": "vite", "name": "Vite" }
+      ]
+    },
+    {
+      "title": "Backend",
+      "skills": [
+        { "icon": "go", "name": "Go" },
+        { "icon": "python", "name": "Python" },
+        { "icon": "nodejs", "name": "NodeJS" },
+        { "icon": "sql", "name": "SQL" }
+      ]
+    },
+    {
+      "title": "Databases",
+      "skills": [
+        { "icon": "postgresql", "name": "PostgreSQL" },
+        { "icon": "mongo-db", "name": "MongoDB" },
+        { "icon": "minio", "name": "MinIO" },
+        { "icon": "redis", "name": "Redis" }
+      ]
+    },
+    {
+      "title": "Infrastructure",
+      "skills": [
+        { "icon": "gcp", "name": "GCP" },
+        { "icon": "git", "name": "Git" },
+        { "icon": "prometheus", "name": "Prometheus" },
+        { "icon": "kafka", "name": "Kafka" }
+      ]
+    },
+    {
+      "title": "Servers",
+      "skills": [
+        { "icon": "linux", "name": "Linux" },
+        { "icon": "bash", "name": "Bash" },
+        { "icon": "caddy", "name": "Caddy" },
+        { "icon": "nginx", "name": "Nginx" }
+      ]
+    },
+    {
+      "title": "DevOps",
+      "skills": [
+        { "icon": "github-actions", "name": "GitHub Actions" },
+        { "icon": "argo-cd", "name": "Argo CD" },
+        { "icon": "terraform", "name": "Terraform" },
+        { "icon": "kubernetes", "name": "Kubernetes" }
+      ]
+    }
+  ]
+}

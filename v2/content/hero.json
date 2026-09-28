@@ -1,0 +1,10 @@
+{
+  "image": "/static/images/me.webp",
+  "imageAlt": "Logo of the website",
+  "name": "Milijan Mosić",
+  "role": "Software Engineer",
+  "tagline": "Building reliable, scalable, and modern applications — from microservices to full-stack solutions.",
+  "motto": "Positivity. Passion. Perseverance.",
+  "primaryAction": { "href": "/#contact-me", "label": "Hire me" },
+  "secondaryAction": { "href": "/#projects", "label": "My work" }
+}

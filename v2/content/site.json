@@ -1,0 +1,43 @@
+{
+  "name": "Milijan Mosić",
+  "role": "Software Engineer",
+  "title": "Milijan Mosić - Software Engineer",
+  "description": "Building reliable, scalable, and modern applications — from microservices to full-stack solutions!",
+  "author": "Milijan Mosić",
+  "canonical": "https://milijan-mosic.dev",
+  "email": "milijan.mosic@gmail.com",
+  "locale": "en",
+  "footer": {
+    "identity": "Milijan Mosić — Software Engineer",
+    "location": "Based in Serbia — Working worldwide",
+    "copyrightFrom": "2025",
+    "credits": "Special thanks to: Flaticon, Simple Icons, Font Awesome, Google Fonts, mysterious guy on internet from which I took the JS script for the rain... Many thanks!",
+    "cookieSettings": "Cookie settings"
+  },
+  "social": [
+    {
+      "icon": "location-pin",
+      "href": "https://maps.app.goo.gl/Efgqkq4Y5NqMyK9Z8",
+      "label": "Link to Novi Sad, Serbia on Google Maps",
+      "size": "w-5 h-5"
+    },
+    {
+      "icon": "envelope",
+      "href": "mailto:milijan.mosic@gmail.com",
+      "label": "Link for opening your app for sending email to Milijan",
+      "size": "w-5 h-5"
+    },
+    {
+      "icon": "github",
+      "href": "https://github.com/milijan-mosic",
+      "label": "Link towards Milijan’s GitHub profile",
+      "size": "w-5 h-5"
+    },
+    {
+      "icon": "linkedin",
+      "href": "https://linkedin.com/in/milijan-mosic",
+      "label": "Link towards Milijan’s LinkedIn profile",
+      "size": "w-5 h-5"
+    }
+  ]
+}

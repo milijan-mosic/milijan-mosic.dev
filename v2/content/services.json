@@ -1,0 +1,27 @@
+{
+  "title": "Services",
+  "items": [
+    {
+      "icon": "web",
+      "title": "Web App Development",
+      "paragraph": "Modern, responsive, and fast front-end applications. Building secure, maintainable APIs, microservices, and real-time systems."
+    },
+    {
+      "icon": "cloud",
+      "title": "Cloud App Development",
+      "paragraph": "Cloud-native deployments with scalability, automation, and strong security. Optimized infrastructure using containers, Kubernetes, and CI/CD."
+    },
+    {
+      "icon": "desktop",
+      "title": "Desktop App Development",
+      "paragraph": "Lightweight, high-performance desktop tools tailored to your workflow. Reliable systems built for speed, productivity, and long-term maintainability."
+    },
+    {
+      "icon": "mobile",
+      "title": "Mobile App Development",
+      "paragraph": "Smooth, performant mobile apps with clean UX and strong backend integration. Cross-platform, secure, and optimized for a seamless user experience."
+    }
+  ],
+  "outro": "If you’re interested in collaborating or need support on a project, feel free to get in touch",
+  "action": { "href": "/#contact-me", "label": "Let’s work" }
+}

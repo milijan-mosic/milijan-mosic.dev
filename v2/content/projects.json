@@ -1,0 +1,56 @@
+{
+  "title": "Projects",
+  "items": [
+    {
+      "name": "Aleksandra Bengin",
+      "type": "Cello Performer Website",
+      "description": "A personal website for a professional cello performer, designed to present upcoming concerts, ongoing collaborations, and artistic projects. The platform serves as a central place for audiences, organizers, and collaborators to explore performances, media, and current engagements.",
+      "technologies": ["React", "TypeScript", "Tailwind CSS", "Go", "PostgreSQL", "Caddy"],
+      "role": ["Full-Stack Development", "UI Design & Implementation", "Deployment & Maintenance"],
+      "thumbnail": "/static/images/projects/aleksandra-bengin.webp"
+    },
+    {
+      "name": "Alloqis",
+      "type": "Data Analytics & Forecasting Platform",
+      "description": "A data-driven platform focused on cleaning, filtering, and aggregating large datasets to support business decision-making. It combines interactive dashboards, tables, and visualizations with AI-based demand and supply forecasting to help teams plan more efficiently.",
+      "technologies": ["Dash", "Bootstrap", "Python", "DuckDB", "SQL", "Docker"],
+      "role": ["Full-Stack Development", "UI Implementation", "Code Quality & Refactoring"],
+      "thumbnail": "/static/images/projects/alloqis.webp"
+    },
+    {
+      "name": "Recall Taxi",
+      "type": "Ride-Hailing Platform",
+      "description": "A modern ride-hailing application aimed at digitizing and improving traditional taxi services. The platform focuses on real-time ride matching, driver and passenger apps, and scalable infrastructure, bringing an Uber-like experience tailored for the Serbian market.",
+      "technologies": [
+        "React",
+        "TypeScript",
+        "Go",
+        "Python",
+        "PostgreSQL",
+        "MinIO",
+        "Redis",
+        "Kafka"
+      ],
+      "role": [
+        "Full-Stack Development",
+        "System Architecture",
+        "Authentication & Authorization",
+        "Access Control Systems"
+      ],
+      "thumbnail": "/static/images/projects/recall-taxi.webp"
+    },
+    {
+      "name": "CyberPopUp",
+      "type": "Cybersecurity Talent & Solutions Platform",
+      "description": "A matchmaking platform connecting companies facing cybersecurity challenges with verified security experts. By addressing demand and supply from both sides, the platform streamlines onboarding, discovery, and collaboration, enabling faster and more effective security solutions.",
+      "technologies": ["Python", "PostgreSQL", "MinIO", "Docker", "Caddy"],
+      "role": [
+        "Backend Development",
+        "Code Quality & Refactoring",
+        "Authentication & Authorization"
+      ],
+      "thumbnail": "/static/images/projects/cyberpopup.webp"
+    }
+  ],
+  "action": { "href": "/#contact-me", "label": "Let’s build something" }
+}

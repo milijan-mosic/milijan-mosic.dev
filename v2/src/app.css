@@ -1,0 +1,82 @@
+@import "tailwindcss";
+
+/* Primary CTA fill; also the dark end of the background shader's ramp. */
+@theme {
+  --color-brand: #192758;
+}
+
+/*
+ * Faculty Glyphic, self-hosted from @fontsource but declared by hand so the files
+ * sit at a stable, preloadable path instead of a hashed build asset. The family
+ * ships a single Regular weight; see `font-synthesis` on body.
+ *
+ * latin-ext is not optional: the Serbian names in the copy (Mosić, Lukajić,
+ * Jovanović, Kostić) are U+0107, which the latin subset does not cover.
+ */
+@font-face {
+  font-family: "Faculty Glyphic";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/static/fonts/faculty-glyphic-latin-400-normal.woff2") format("woff2");
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+    U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "Faculty Glyphic";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/static/fonts/faculty-glyphic-latin-ext-400-normal.woff2") format("woff2");
+  unicode-range:
+    U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329,
+    U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F,
+    U+A720-A7FF;
+}
+
+/* Carried over unchanged from src/static/css/global.css — these five classes
+   are what make the port pixel-identical; do not inline them into components. */
+@layer components {
+  .glass-card {
+    @apply overflow-hidden to-transparent rounded-3xl border shadow-xl backdrop-blur-xl outline-none border-white/30 bg-linear-to-br from-white/20;
+  }
+
+  .animate {
+    @apply transition-all duration-75 ease-linear;
+  }
+
+  .mobile-nav-link {
+    @apply p-4 w-full text-lg font-medium hover:bg-white hover:text-black;
+  }
+
+  .footer-nav-link {
+    @apply flex justify-center items-center m-1 w-12 h-12 text-2xl rounded-xl border-2 invert border-black/35 hover:border-white/35 hover:invert-0 hover:bg-white;
+  }
+
+  .form-input {
+    @apply p-2 w-full rounded-xl border-2 placeholder-white/50 lg:w-1/2 bg-white/25 border-white/0 focus:outline-none focus:border-white;
+  }
+}
+
+html,
+body {
+  scroll-behavior: smooth !important;
+}
+
+body {
+  font-family: "Faculty Glyphic", serif;
+  /* Regular is the only weight that exists. Without this, every font-bold /
+     font-medium heading gets a browser-smeared faux bold. */
+  font-synthesis-weight: none;
+  font-size: 18px;
+  background-color: black;
+  color: whitesmoke;
+}
+
+/* Google permits hiding the v3 badge provided the notice below the form
+   credits reCAPTCHA with links to the Privacy Policy and Terms. */
+.grecaptcha-badge {
+  visibility: hidden;
+}

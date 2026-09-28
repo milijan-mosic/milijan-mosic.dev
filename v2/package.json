@@ -1,0 +1,44 @@
+{
+  "name": "milijan-mosic.dev",
+  "version": "2.0.0",
+  "description": "Personal site of Milijan Mosić — Solid Start rewrite",
+  "type": "module",
+  "private": true,
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "dev": "vite dev",
+    "prebuild": "node scripts/validate-content.ts",
+    "build": "vite build",
+    "postbuild": "node scripts/prerender.ts",
+    "start": "node server.ts",
+    "typecheck": "tsc --noEmit",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "check": "npm run format:check && npm run typecheck && npm run validate:content",
+    "validate:content": "node scripts/validate-content.ts",
+    "optimize:assets": "node scripts/optimize-assets.ts"
+  },
+  "dependencies": {
+    "@fontsource/faculty-glyphic": "^5.3.0",
+    "@fortawesome/free-brands-svg-icons": "^7.1.0",
+    "@fortawesome/free-solid-svg-icons": "^7.1.0",
+    "@solidjs/router": "^0.16.2",
+    "@solidjs/start": "^2.0.5",
+    "resend": "^6.2.0",
+    "solid-js": "^1.9.9",
+    "solid-toast": "^0.5.0",
+    "srvx": "^0.12.8",
+    "zod": "^4.1.13"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.1.18",
+    "@types/node": "^24.13.5",
+    "prettier": "^3.9.7",
+    "sharp": "^0.35.4",
+    "tailwindcss": "^4.1.18",
+    "typescript": "^5.9.3",
+    "vite": "^8.0.0"
+  }
+}

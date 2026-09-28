@@ -1,0 +1,22 @@
+{
+  "title": "Contact Me",
+  "intro": "Have an idea, a project, or a challenge you’d like to discuss? I’m always happy to connect and explore how we can work together.",
+  "fields": {
+    "name": { "label": "Name", "placeholder": "William" },
+    "email": { "label": "Email", "placeholder": "user@example.com" },
+    "request": { "label": "Request", "placeholder": "I have an idea for the project..." }
+  },
+  "submitLabel": "Send request",
+  "submittingLabel": "Sending...",
+  "successMessage": "Request sent successfully!",
+  "errorMessage": "Something went wrong. Try again later.",
+  "recaptchaNotice": {
+    "prefix": "This site is protected by reCAPTCHA and the Google ",
+    "privacyLabel": "Privacy Policy",
+    "privacyHref": "https://policies.google.com/privacy",
+    "middle": " and ",
+    "termsLabel": "Terms of Service",
+    "termsHref": "https://policies.google.com/terms",
+    "suffix": " apply."
+  }
+}

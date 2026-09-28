@@ -1,0 +1,50 @@
+{
+  "groups": [
+    {
+      "title": "Client Feedback",
+      "entries": [
+        {
+          "image": "/static/images/people/aleksandra-bengin.webp",
+          "name": "Aleksandra Bengin",
+          "company": "Cellist @ RTS Symphony Orchestra",
+          "message": "I would especially like to thank Milijan Mosić for working on my website and for a very professional and creative approach. It was a wonderful cooperation and he fulfilled all my wishes related to the website. I highly recommend cooperation with him if you also want to have your own online portfolio in the form of a website."
+        },
+        {
+          "image": "/static/images/people/james-randolph.webp",
+          "name": "James Randolph",
+          "company": "Product Owner @ CyberPopUp",
+          "message": "We brought Milijan in to fix a couple of slow API endpoints and ended up keeping him on for the rest of the project. When something broke, he told us right away and usually had a fix ready before the call was over."
+        },
+        {
+          "image": "/static/images/people/sigmund-koch.webp",
+          "name": "Sigmund Koch",
+          "company": "Startup Founder @ Alloqis",
+          "message": "He delivered on time, and the backend hasn’t given us a single problem since launch."
+        }
+      ]
+    },
+    {
+      "title": "Peer Endorsements",
+      "entries": [
+        {
+          "image": "/static/images/people/mladen-lukajic.webp",
+          "name": "Mladen Lukajić",
+          "company": "Software Engineer @ IT Engine",
+          "message": "I sat next to Milijan for almost two years. Whenever someone on the team got stuck on a weird bug, he was usually the one who found it, and afterwards he would explain what actually happened so the rest of us learned something too. Good colleague. Never makes you feel stupid for asking."
+        },
+        {
+          "image": "/static/images/people/nikola-jovanovic.webp",
+          "name": "Nikola Jovanović",
+          "company": "DevOps Engineer @ Recall Taxi",
+          "message": "Milijan is a developer who actually reads the logs. He set up our deployment pipeline and I barely had to touch it after."
+        },
+        {
+          "image": "/static/images/people/ivana-kostic.webp",
+          "name": "Ivana Kostić",
+          "company": "Backend Engineer @ Tangled Group Inc.",
+          "message": "Milijan rewrote the part of our service responsible for most of the timeouts. Small pull requests, proper tests, and a comment wherever the code wasn’t obvious."
+        }
+      ]
+    }
+  ]
+}
