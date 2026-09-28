@@ -1,7 +1,7 @@
 # milijan-mosic.dev — v2
 
 A Solid Start 2 + TypeScript + Tailwind v4 rewrite of the site, replacing the Go/templ app in `../src`.
-The UI, copy and layout are a 1:1 port — this is a rewrite of the implementation, not a redesign.
+It started as a 1:1 port of the layout; the font, colours and some of the copy have changed since.
 
 ## Requirements
 
