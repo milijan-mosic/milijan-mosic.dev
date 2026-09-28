@@ -1,7 +1,7 @@
 services:
-  server:
+  mm_dev_server:
     image: caddy:2.11-alpine
-    container_name: server
+    container_name: mm_dev_server
     restart: always
     ports:
       - 80:80
@@ -11,32 +11,53 @@ services:
       - ./server/Caddyfile:/etc/caddy/Caddyfile
       - caddy_data:/data        # certs live here
       - caddy_config:/config
+      - ./certs/fullchain.pem:/etc/caddy/fullchain.pem
+      - ./certs/privkey.pem:/etc/caddy/privkey.pem
+      # Prerendered HTML + hashed assets, published by mm_dev_app on start.
+      - v2_static:/srv/v2:ro
+    depends_on:
+      - mm_dev_app
     networks:
       - heartbit
       - caddy_shared
 
-  my_app:
-    image: my_app:latest
-    container_name: my_app
+  # The Solid Start site. Caddy serves its prerendered HTML straight from the
+  # v2_static volume; this container is only in the request path for /api/contact.
+  #
+  # The v1 Go app in ./src is intentionally no longer part of this stack — its
+  # files and Dockerfile are left untouched, it just doesn't run any more.
+  mm_dev_app:
+    image: mm_dev_app:latest
+    container_name: mm_dev_app
     restart: on-failure
     build:
-      context: ./src
+      context: ./v2
       dockerfile: docker/Dockerfile
+      # Build-time copy of .env so Vite can inline the public VITE_* keys.
+      secrets:
+        - app_env
     env_file:
-      - ./src/.env
-    ports:
-      - "20000:20000"
-    depends_on:
-      - server
+      - ./v2/.env
+    # Not published to the host on purpose. Caddy reaches this over the compose
+    # network as mm_dev_app:40000, so a host binding adds nothing but the risk of
+    # colliding with whatever else is running. For direct browser access while
+    # debugging, temporarily add:  ports: ["<free-port>:40000"]
+    expose:
+      - "40000"
     networks:
       - heartbit
     volumes:
-      - data:/data
+      - v2_static:/srv/v2
+
+secrets:
+  app_env:
+    file: ./v2/.env
 
 volumes:
   data:
   caddy_data:
   caddy_config:
+  v2_static:
 
 networks:
   caddy_shared:

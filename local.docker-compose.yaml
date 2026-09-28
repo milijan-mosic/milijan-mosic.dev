@@ -1,36 +1,53 @@
 services:
-  server:
+  mm_dev_server:
     image: caddy:2.11-alpine
-    container_name: server
+    container_name: mm_dev_server
     restart: always
     ports:
       - 80:80
       - 443:443
     volumes:
       - ./server/local.Caddyfile:/etc/caddy/Caddyfile
+    depends_on:
+      - mm_dev_app
     networks:
       - heartbit
 
-  my_app:
-    image: my_app:latest
-    container_name: my_app
+  # Development mode: the `dev` stage of v2/docker/Dockerfile runs `vite dev`
+  # with src/, content/ and public/ mounted in, so edits hot reload on
+  # https://app.moss.local with no rebuild. Dependencies are baked into the
+  # image, so `up` starts in seconds; `up --build` only reinstalls them when
+  # package-lock.json changes. This deliberately differs
+  # from docker-compose.yaml, which serves the prerendered production build —
+  # run that one locally for a final check that matches what ships.
+  #
+  # The v1 Go app in ./src is intentionally no longer part of this stack — its
+  # files and Dockerfile are left untouched, it just doesn't run any more.
+  mm_dev_app:
+    image: mm_dev_app_dev:latest
+    container_name: mm_dev_app
     restart: on-failure
     build:
-      context: ./src
+      context: ./v2
       dockerfile: docker/Dockerfile
+      target: dev
+    # Supplies both the VITE_* keys (Vite picks them up from process.env) and
+    # the server-only ones (Resend, reCAPTCHA secret) for /api/contact.
     env_file:
-      - ./src/.env
-    ports:
-      - "20000:20000"
-    depends_on:
-      - server
+      - ./v2/.env
+    # Not published to the host on purpose. Caddy reaches this over the compose
+    # network as mm_dev_app:40000, so a host binding adds nothing but the risk of
+    # colliding with whatever else is running.
+    expose:
+      - "40000"
     networks:
       - heartbit
     volumes:
-      - data:/data
-
-volumes:
-  data:
+      # Read-only: the container can never modify your working tree. Config
+      # files are baked into the image instead — see the `dev` stage.
+      - ./v2/src:/app/src:ro
+      - ./v2/content:/app/content:ro
+      - ./v2/public:/app/public:ro
 
 networks:
   heartbit:
