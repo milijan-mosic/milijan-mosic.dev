@@ -11,8 +11,6 @@ services:
       - ./server/Caddyfile:/etc/caddy/Caddyfile
       - caddy_data:/data        # certs live here
       - caddy_config:/config
-      - ./certs/fullchain.pem:/etc/caddy/fullchain.pem
-      - ./certs/privkey.pem:/etc/caddy/privkey.pem
       # Prerendered HTML + hashed assets, published by mm_dev_app on start.
       - v2_static:/srv/v2:ro
     depends_on:
@@ -54,7 +52,6 @@ secrets:
     file: ./v2/.env
 
 volumes:
-  data:
   caddy_data:
   caddy_config:
   v2_static:

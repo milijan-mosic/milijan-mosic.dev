@@ -1,33 +1,24 @@
 app.moss.local {
 	tls internal
 
+	encode zstd gzip
+
 	header {
 		Referrer-Policy "no-referrer"
-		Cache-Control "max-age=259200"
 		X-XSS-Protection "1; mode=block"
 		X-Content-Type-Options "nosniff"
 		Cross-Origin-Opener-Policy "same-origin"
-		Strict-Transport-Security "max-age=63072000; includeSubDomains; preload"
 		X-Frame-Options "deny"
+		# NOTE: Strict-Transport-Security is deliberately NOT set here, unlike
+		# server/Caddyfile. `tls internal` issues a cert from Caddy's own CA,
+		# which the browser doesn't trust — and HSTS removes the "proceed
+		# anyway" bypass for untrusted certs, making the site unreachable.
+		# A 2-year max-age would also pin app.moss.local long after testing.
+		#
+		# The headers below are kept identical to server/Caddyfile so the CSP
+		# is exercised locally. See that file for why each directive differs
+		# from the v1 policy.
 		Content-Security-Policy "
-    encode zstd gzip
-
-    header {
-        Referrer-Policy "no-referrer"
-        X-XSS-Protection "1; mode=block"
-        X-Content-Type-Options "nosniff"
-        Cross-Origin-Opener-Policy "same-origin"
-        X-Frame-Options "deny"
-        # NOTE: Strict-Transport-Security is deliberately NOT set here, unlike
-        # server/Caddyfile. `tls internal` issues a cert from Caddy's own CA,
-        # which the browser doesn't trust — and HSTS removes the "proceed
-        # anyway" bypass for untrusted certs, making the site unreachable.
-        # A 2-year max-age would also pin app.moss.local long after testing.
-        #
-        # The headers below are kept identical to server/Caddyfile so the CSP
-        # is exercised locally. See that file for why each directive differs
-        # from the v1 policy.
-        Content-Security-Policy "
             default-src 'self';
             script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google.com https://www.gstatic.com;
             connect-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com https://www.google.com;
@@ -46,18 +37,10 @@ app.moss.local {
 		-Server
 	}
 
-	route {
-		header Cache-Control max-age=259200
-		header /static/* Cache-Control max-age=259200
-	}
-
-	handle {
-		reverse_proxy my_app:20000
-	}
-    # Everything goes to `vite dev`, including its hot-reload WebSocket (which
-    # reverse_proxy upgrades transparently). The Cache-Control rules and static
-    # file_server from server/Caddyfile are left out on purpose: in dev, cached
-    # files would hide your edits, and there is no prerendered build to serve.
-    # The 404 page is rendered by the app's catch-all route instead.
-    reverse_proxy mm_dev_app:40000
+	# Everything goes to `vite dev`, including its hot-reload WebSocket (which
+	# reverse_proxy upgrades transparently). The Cache-Control rules and static
+	# file_server from server/Caddyfile are left out on purpose: in dev, cached
+	# files would hide your edits, and there is no prerendered build to serve.
+	# The 404 page is rendered by the app's catch-all route instead.
+	reverse_proxy mm_dev_app:40000
 }
