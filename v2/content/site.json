@@ -19,25 +19,25 @@
       "icon": "location-pin",
       "href": "https://maps.app.goo.gl/Efgqkq4Y5NqMyK9Z8",
       "label": "Link to Novi Sad, Serbia on Google Maps",
-      "size": "w-5 h-5"
+      "size": "w-6 h-6"
     },
     {
       "icon": "envelope",
       "href": "mailto:milijan.mosic@gmail.com",
       "label": "Link for opening your app for sending email to Milijan",
-      "size": "w-5 h-5"
+      "size": "w-6 h-6"
     },
     {
       "icon": "github",
       "href": "https://github.com/milijan-mosic",
       "label": "Link towards Milijan’s GitHub profile",
-      "size": "w-5 h-5"
+      "size": "w-6 h-6"
     },
     {
       "icon": "linkedin",
       "href": "https://linkedin.com/in/milijan-mosic",
       "label": "Link towards Milijan’s LinkedIn profile",
-      "size": "w-5 h-5"
+      "size": "w-6 h-6"
     }
   ]
 }
