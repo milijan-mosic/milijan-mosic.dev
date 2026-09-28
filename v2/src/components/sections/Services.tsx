@@ -30,7 +30,7 @@ export const Services: Component = () => (
       <p class="mt-16 mb-8">{services.outro}</p>
       <a
         href={services.action.href}
-        class="p-2 px-8 mb-4 text-lg bg-brand rounded-full border-sky-500 animate border-1 hover:border-white hover:bg-white hover:text-black hover:cursor-pointer"
+        class="p-2 px-8 mb-4 text-lg bg-brand rounded-full border-brand-mid animate border-1 hover:border-white hover:bg-white hover:text-black hover:cursor-pointer"
       >
         {services.action.label}
       </a>

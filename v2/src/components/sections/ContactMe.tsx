@@ -10,9 +10,9 @@ import { getRecaptchaToken, loadRecaptcha } from "~/lib/recaptcha";
  * Both states must keep identical geometry, or the button shifts mid-submit.
  */
 const IDLE_BUTTON_CLASS =
-  "p-2 px-8 mt-8 mb-4 text-lg bg-brand rounded-full border-sky-500 animate border-1 hover:border-white hover:bg-white hover:text-black hover:cursor-pointer";
+  "p-2 px-8 mt-4 mb-8 text-lg bg-brand rounded-full border-brand-mid animate border-1 hover:border-white hover:bg-white hover:text-black hover:cursor-pointer";
 const SENDING_BUTTON_CLASS =
-  "p-2 px-8 mt-8 mb-4 text-lg text-black bg-yellow-300 rounded-full cursor-not-allowed animate";
+  "p-2 px-8 mt-4 mb-8 text-lg text-black bg-yellow-300 rounded-full cursor-not-allowed animate";
 
 export const ContactMe: Component = () => {
   const [isSubmitting, setIsSubmitting] = createSignal(false);

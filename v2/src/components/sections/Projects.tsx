@@ -51,7 +51,7 @@ export const Projects: Component = () => (
     </div>
     <a
       href={projects.action.href}
-      class="p-2 px-4 mt-8 mb-4 text-lg bg-brand rounded-full border-sky-500 md:px-8 animate border-1 hover:border-white hover:bg-white hover:text-black hover:cursor-pointer"
+      class="p-2 px-4 mt-8 mb-4 text-lg bg-brand rounded-full border-brand-mid md:px-8 animate border-1 hover:border-white hover:bg-white hover:text-black hover:cursor-pointer"
     >
       {projects.action.label}
     </a>

@@ -38,7 +38,7 @@ export const Hero: Component = () => (
         </a>
         <a
           href={hero.primaryAction.href}
-          class="p-2 px-4 ml-2 text-lg bg-brand rounded-full border-sky-500 md:px-8 animate border-1 hover:border-white hover:bg-white hover:text-black hover:cursor-pointer"
+          class="p-2 px-4 ml-2 text-lg bg-brand rounded-full border-brand-mid md:px-8 animate border-1 hover:border-white hover:bg-white hover:text-black hover:cursor-pointer"
         >
           {hero.primaryAction.label}
         </a>

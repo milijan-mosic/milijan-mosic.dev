@@ -23,7 +23,7 @@ export default function NotFound() {
             <p class="mb-16 text-center">This page doesn’t exist — or it moved somewhere better.</p>
             <a
               href="/"
-              class="p-2 px-8 mb-4 text-lg bg-brand rounded-full border-sky-500 animate border-1 hover:border-white hover:bg-white hover:text-black hover:cursor-pointer"
+              class="p-2 px-8 mb-4 text-lg bg-brand rounded-full border-brand-mid animate border-1 hover:border-white hover:bg-white hover:text-black hover:cursor-pointer"
             >
               Back home
             </a>

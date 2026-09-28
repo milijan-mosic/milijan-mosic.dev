@@ -19,7 +19,7 @@ export const Footer: Component = () => (
         <button
           type="button"
           onClick={reopen}
-          class="mt-1 underline hover:cursor-pointer animate hover:text-white"
+          class="mt-1 underline hover:text-white hover:cursor-pointer"
         >
           {site.footer.cookieSettings}
         </button>
@@ -56,7 +56,7 @@ export const Footer: Component = () => (
         <For each={leftLinks}>
           {(link) => (
             <li>
-              <a href={link.href} class="underline">
+              <a href={link.href} class="hover:text-white hover:underline">
                 {link.label}
               </a>
             </li>
@@ -67,7 +67,7 @@ export const Footer: Component = () => (
         <For each={rightLinks}>
           {(link) => (
             <li>
-              <a href={link.href} class="underline">
+              <a href={link.href} class="hover:text-white hover:underline">
                 {link.label}
               </a>
             </li>

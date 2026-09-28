@@ -25,7 +25,7 @@ export const CookieBanner: Component = () => {
           <button
             type="button"
             onClick={accept}
-            class="p-2 px-4 text-sm bg-brand rounded-full border-sky-500 animate border-1 hover:border-white hover:bg-white hover:text-black hover:cursor-pointer"
+            class="p-2 px-4 text-sm bg-brand rounded-full border-brand-mid animate border-1 hover:border-white hover:bg-white hover:text-black hover:cursor-pointer"
           >
             {copy.acceptLabel}
           </button>

@@ -3,6 +3,8 @@
 /* Primary CTA fill; also the dark end of the background shader's ramp. */
 @theme {
   --color-brand: #192758;
+  /* Primary CTA border; second step of the logo palette. */
+  --color-brand-mid: #446e99;
 }
 
 /*
