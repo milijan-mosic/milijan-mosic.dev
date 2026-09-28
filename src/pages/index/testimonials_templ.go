@@ -52,8 +52,8 @@ var colleagueEndorsments = []Testimonial{
 		Message: "I’ve worked with Milijan on infrastructure-heavy projects, and his DevOps mindset really shows. He cares about deployments, monitoring, and reliability just as much as application logic.",
 	},
 	{
-		Image:   "/static/images/people/ivan-kostic.webp",
-		Name:    "Ivan Kostić",
+		Image:   "/static/images/people/ivana-kostic.webp",
+		Name:    "Ivana Kostić",
 		Company: "Backend Engineer @ Tangled Group Inc.",
 		Message: "Milijan has a strong sense for clean architecture and performance. He’s disciplined, curious, and constantly improving his skills, which makes him a great teammate on any serious engineering project.",
 	},
