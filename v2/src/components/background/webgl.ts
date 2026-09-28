@@ -8,6 +8,15 @@ import { FRAGMENT_SHADER, SHADER_DARK, SHADER_LIGHT, VERTEX_SHADER } from "./sha
 const RESOLUTION_SCALE = 0.5;
 const MAX_DEVICE_PIXEL_RATIO = 2;
 
+/**
+ * The viewport shape the pattern is drawn undistorted at, filling p ∈ [-1, 1]
+ * on both axes. Any other shape crops it like `object-fit: cover` — a wider
+ * window shows a horizontal band, a phone a vertical slice from the middle —
+ * so resizing never stretches it. p also never leaves [-1, 1], the only range
+ * the v1 math was designed for.
+ */
+const REFERENCE_ASPECT = 16 / 9;
+
 export interface ShaderHandle {
   dispose: () => void;
 }
@@ -111,6 +120,7 @@ export function initShader(container: HTMLElement): ShaderHandle {
   );
 
   const timeLocation = gl.getUniformLocation(program, "time");
+  const scaleLocation = gl.getUniformLocation(program, "uScale");
   gl.uniform3f(gl.getUniformLocation(program, "uColorDark"), ...SHADER_DARK);
   gl.uniform3f(gl.getUniformLocation(program, "uColorLight"), ...SHADER_LIGHT);
 
@@ -124,6 +134,13 @@ export function initShader(container: HTMLElement): ShaderHandle {
     canvas.width = width;
     canvas.height = height;
     gl.viewport(0, 0, width, height);
+
+    const aspect = width / height;
+    if (aspect > REFERENCE_ASPECT) {
+      gl.uniform2f(scaleLocation, 1, REFERENCE_ASPECT / aspect);
+    } else {
+      gl.uniform2f(scaleLocation, aspect / REFERENCE_ASPECT, 1);
+    }
   };
 
   const draw = (seconds: number) => {

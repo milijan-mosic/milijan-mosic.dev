@@ -1,9 +1,11 @@
 /**
  * The pattern is copied verbatim from src/static/js/shader.js — it is the site's
- * visual identity, so that math must not drift. Two things are added: the
+ * visual identity, so that math must not drift. Three things are added: the
  * declarations three.js used to prepend automatically (precision, attributes),
- * which raw WebGL requires us to supply, and the final colouring, which maps the
- * pattern onto a two-colour ramp instead of tinting v1's multicolour output.
+ * which raw WebGL requires us to supply; `uScale` on the first line, which crops
+ * the pattern to the viewport instead of stretching it (see webgl.ts); and the
+ * final colouring, which maps the pattern onto a two-colour ramp instead of
+ * tinting v1's multicolour output.
  */
 
 export const VERTEX_SHADER = `
@@ -31,11 +33,12 @@ void main() {
 export const FRAGMENT_SHADER = `
 varying vec2 vUv;
 uniform float time;
+uniform vec2 uScale;
 uniform vec3 uColorDark;
 uniform vec3 uColorLight;
 
 void main() {
-  vec2 p = -1.0 + 2.0 * vUv;
+  vec2 p = ( -1.0 + 2.0 * vUv ) * uScale;
   float a = time * 40.0;
   float d, e, f, g = 1.0 / 40.0 ,h ,i ,r ,q;
 
