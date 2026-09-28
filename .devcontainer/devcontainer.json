@@ -1,0 +1,58 @@
+{
+  "name": "My Website - CCSS",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": ".."
+  },
+
+  // ── Git credentials ────────────────────────────────────────────────────────
+  // Configure a Fine-Grained PAT on your host machine once (see guide §6.2).
+  // VS Code forwards it into the container automatically — nothing to configure here.
+  // This file contains no credentials and is safe to commit to git.
+
+  // ── Firewall ───────────────────────────────────────────────────────────────
+  // Runs on every container start. Restricts outbound traffic to whitelist only.
+  // To add/remove allowed domains: edit .devcontainer/init-firewall.sh
+  "postStartCommand": "sudo /bin/bash /devcontainer/init-firewall.sh && curl -fsSL https://claude.ai/install.sh | bash",
+
+  // ── Container capabilities ─────────────────────────────────────────────────
+  // NET_ADMIN is required for iptables firewall rules in init-firewall.sh.
+  // Grants network configuration rights inside the container only, not on the host.
+  "runArgs": ["--cap-add=NET_ADMIN"],
+
+  // ── VS Code extensions ─────────────────────────────────────────────────────
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "anthropic.claude-code",
+        "eamodio.gitlens",
+        "charliermarsh.ruff"
+      ],
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "zsh",
+        "git.autofetch": true,
+        "chat.disableAIFeatures": true,
+        "[python]": {
+          "editor.defaultFormatter": "charliermarsh.ruff",
+          "editor.formatOnSave": true,
+          "editor.codeActionsOnSave": {
+            "source.fixAll.ruff": "explicit",
+            "source.organizeImports.ruff": "explicit"
+          }
+        }
+      }
+    }
+  },
+
+  // ── Security ───────────────────────────────────────────────────────────────
+  // Run as non-root user. Reduces blast radius if something goes wrong.
+  "remoteUser": "vscode",
+
+  // ── Persistent volumes ─────────────────────────────────────────────────────
+  // Claude config and shell history survive container rebuilds.
+  // Project files live on the host and are mounted automatically by VS Code.
+  "mounts": [
+    "source=claude-code-history,target=/commandhistory,type=volume",
+    "source=claude-code-config,target=/home/vscode/.claude,type=volume"
+  ]
+}

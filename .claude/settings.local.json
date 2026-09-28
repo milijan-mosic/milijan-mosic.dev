@@ -1,0 +1,23 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git *)",
+      "Bash(uv *)",
+      "Bash(python3 *)",
+      "Bash(cat *)",
+      "Bash(bash *)",
+      "Bash(ls *)",
+      "Bash(grep *)",
+      "Bash(find *)",
+      "Bash(sed *)",
+      "Bash(diff *)",
+      "Bash(head *)",
+      "Bash(tail *)",
+      "Bash(awk *)",
+      "Bash(cd *)",
+      "Bash(npm *)",
+      "WebSearch",
+      "Bash(npx tsc *)"
+    ]
+  }
+}
