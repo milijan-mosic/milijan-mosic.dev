@@ -12,19 +12,40 @@ milijan-mosic.dev {
 		Strict-Transport-Security "max-age=63072000; includeSubDomains; preload"
 		X-Frame-Options "deny"
 		Content-Security-Policy "
+    tls /etc/caddy/fullchain.pem /etc/caddy/privkey.pem
+
+    encode zstd gzip
+
+    header {
+        Referrer-Policy "no-referrer"
+        X-XSS-Protection "1; mode=block"
+        X-Content-Type-Options "nosniff"
+        Cross-Origin-Opener-Policy "same-origin"
+        Strict-Transport-Security "max-age=63072000; includeSubDomains; preload"
+        X-Frame-Options "deny"
+        # Changes from the v1 policy, all required for the Solid Start build:
+        #  - `require-trusted-types-for 'script'` removed: Solid's template()
+        #    assigns to innerHTML, which Trusted Types blocks outright.
+        #  - script-src 'unsafe-inline': the pages are prerendered static files,
+        #    so they cannot carry a per-request nonce, and Solid Start inlines a
+        #    hydration payload that no fixed hash can cover.
+        #  - style-src 'unsafe-inline': solid-toast injects a <style> element at
+        #    runtime, and components set style attributes.
+        #  - google.com/gstatic.com for reCAPTCHA, frame-src for its iframe.
+        Content-Security-Policy "
             default-src 'self';
-            script-src 'self' https://www.googletagmanager.com;
-            connect-src 'self' https://www.google-analytics.com;
-            img-src 'self' https://www.google-analytics.com data:;
+            script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google.com https://www.gstatic.com;
+            connect-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com https://www.google.com;
+            img-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://*.google-analytics.com data:;
+            frame-src https://www.google.com;
             manifest-src 'self';
-            style-src 'self';
+            style-src 'self' 'unsafe-inline';
             media-src 'self';
             font-src 'self';
             base-uri 'self';
             form-action 'self';
             object-src 'none';
             frame-ancestors 'none';
-            require-trusted-types-for 'script';
         "
 		-Last-Modified
 		-Server
@@ -46,4 +67,34 @@ notes.milijan-mosic.dev {
 	}
 
 	reverse_proxy silverbullet:3000
+    # Hashed filenames, so the content behind a given URL never changes.
+    @immutable path /_build/*
+    header @immutable Cache-Control "public, max-age=31536000, immutable"
+
+    # Stable names (images, fonts) — cacheable, but must stay replaceable.
+    @static path /static/*
+    header @static Cache-Control "public, max-age=2592000"
+
+    # Prerendered HTML must revalidate so a deploy is picked up immediately.
+    @html path / /404.html *.html
+    header @html Cache-Control "no-cache"
+
+    # The only thing Node serves: the contact endpoint.
+    handle /api/* {
+        reverse_proxy mm_dev_app:40000
+    }
+
+    # Everything else is a static file from the prerendered build.
+    handle {
+        root * /srv/v2
+        file_server
+    }
+
+    handle_errors {
+        @notfound expression {err.status_code} == 404
+        handle @notfound {
+            rewrite * /404.html
+            file_server
+        }
+    }
 }
