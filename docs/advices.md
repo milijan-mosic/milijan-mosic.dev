@@ -1,19 +1,16 @@
 # Advices
 
 You’re not selling code — you’re selling solutions
-
 You must translate tech into value
-
 Do not start with tech — start with a niche + a problem
-
 If you build something and nobody knows it exists → it’s useless
 
 Learn minimal sales + marketing:
 
-- talking to customers
-- writing clear landing pages
-- validating ideas before coding
-- making offers people want
+    - talking to customers
+    - writing clear landing pages
+    - validating ideas before coding
+    - making offers people want
 
 ---
 
