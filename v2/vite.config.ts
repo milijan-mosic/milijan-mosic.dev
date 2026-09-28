@@ -4,6 +4,11 @@ import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
   plugins: [solidStart(), tailwindcss()],
+  // Dev-only: SolidStart's error viewer imports trace-mapping → resolve-uri (UMD).
+  // Unbundled, the browser finds no default export and the viewer fails to load.
+  optimizeDeps: {
+    include: ["@solidjs/start > @jridgewell/trace-mapping"],
+  },
   // Vite 8 defaults to 5173; 3000 is what SolidStart has always used and what
   // the project's docs reference.
   server: {
