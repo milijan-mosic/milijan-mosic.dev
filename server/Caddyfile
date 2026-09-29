@@ -21,21 +21,10 @@ milijan-mosic.dev {
 		#  - style-src 'unsafe-inline': solid-toast injects a <style> element at
 		#    runtime, and components set style attributes.
 		#  - google.com/gstatic.com for reCAPTCHA, frame-src for its iframe.
-		Content-Security-Policy "
-            default-src 'self';
-            script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google.com https://www.gstatic.com;
-            connect-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com https://www.google.com;
-            img-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://*.google-analytics.com data:;
-            frame-src https://www.google.com;
-            manifest-src 'self';
-            style-src 'self' 'unsafe-inline';
-            media-src 'self';
-            font-src 'self';
-            base-uri 'self';
-            form-action 'self';
-            object-src 'none';
-            frame-ancestors 'none';
-        "
+		# Must stay on ONE line: Go's HTTP/2 and HTTP/3 servers silently drop a
+		# header whose value contains a newline (HTTP/1.1 turns it into spaces),
+		# so a multi-line policy never reaches the browser.
+		Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google.com https://www.gstatic.com; connect-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com https://www.google.com; img-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://*.google-analytics.com data:; frame-src https://www.google.com; manifest-src 'self'; style-src 'self' 'unsafe-inline'; media-src 'self'; font-src 'self'; base-uri 'self'; form-action 'self'; object-src 'none'; frame-ancestors 'none';"
 		-Last-Modified
 		-Server
 	}
