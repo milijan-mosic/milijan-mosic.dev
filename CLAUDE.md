@@ -58,6 +58,11 @@ On the VPS, `mm_dev_server` is the only thing on 80/443 and also serves `notes.m
 network). The notes data is a host bind mount at `/opt/silverbullet/space`. The apt `caddy.service` on the
 host is disabled on purpose; it grabs :80.
 
+**Deploys are automatic:** a push to `master` runs `.github/workflows/deploy.yml` — `npm run check`, then
+SSH to the VPS with a key that `authorized_keys` pins to `scripts/deploy.sh` (`command=…,restrict`). The
+script fast-forwards the checkout, rebuilds, recreates Caddy only when `server/Caddyfile` changed, and fails
+the run if the site doesn't answer 200 with a CSP. Anyone who can push to `master` controls the VPS.
+
 ## Gotchas
 
 - **SolidStart 2.x has no SSG and no deploy presets**, and its README still documents 1.x. Prerendering and
