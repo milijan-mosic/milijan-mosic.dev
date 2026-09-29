@@ -1,11 +1,13 @@
 # Remaining verification — v2
 
-What's left before v2 can be considered done. Section 3 is the one with live consequences.
+What's left before v2 can be considered done. v2 is live, so section 2 applies to the real site.
 
 **Already verified — don't redo:** typecheck, Prettier, content validation, build + prerender, no secrets in
-`dist/client`, heading hierarchy and landmarks, Lighthouse 100×4 (desktop and mobile), the 404 page, the
-contact form, the visual comparison with v1, the shader (colour, smoothness, crop-on-resize), and the
-feedback-round spacing and icon-size items. Both Caddyfiles pass `caddy validate`.
+`dist/client`, heading hierarchy and landmarks, Lighthouse (locally and in production), the 404 page and
+contact form (locally and in production), the production deploy, the visual comparison with v1, the shader
+(colour, smoothness, crop-on-resize), and the feedback-round spacing and icon-size items. Both Caddyfiles passed
+`caddy validate` before the one-line CSP change; the Caddy container logs will show if the new version
+doesn't parse.
 
 Run locally at <https://app.moss.local> (accept the self-signed certificate warning):
 
@@ -23,6 +25,7 @@ which in practice means the real deploy.
 
 ### [ ] DevTools console — CSP
 
+**Until the header fix in section 2, no policy reached the browser at all, so earlier passes don't count.**
 A CSP block fails **silently**, and the v2 policy differs a lot from v1: `require-trusted-types-for`
 removed, `'unsafe-inline'` in `script-src` and `style-src`, Google origins added for gtag and reCAPTCHA.
 
@@ -48,43 +51,49 @@ Use a fresh profile or a private window, since a stored choice hides the banner.
 
 ---
 
-## 2. Content workflow
+## 2. Production
 
-The point of the JSON content layer, never exercised end to end.
+**Live on v2 since 2026-09-29.** Lighthouse against the real domain (reports in the repo root): desktop
+100/100/100/100, mobile 99/100/100/100 (FCP 1.3 s, LCP 2.0 s under mobile throttling), no console errors.
 
-- [ ] **Edit** a string in `v2/content/projects.json`, rebuild, confirm it appears with no code change
-- [ ] **Break** it — set a `"name"` to `""` — and confirm the build fails at the `prebuild` step instead
-      of shipping a broken page
+### [ ] CSP header fix: fixed in both Caddyfiles, not yet deployed
 
-```bash
-cd v2 && npm run build     # prebuild runs validate-content automatically
-```
+Confirmed 2026-09-29: the header arrived over `--http1.1` and was missing over `--http2`. The policy was
+written across several lines, and Go's HTTP/2 and HTTP/3 servers drop a header value that contains a
+newline. Both Caddyfiles now have it on one line, with a comment saying why.
 
----
-
-## 3. Production deploy
-
-⚠️ **`docker compose up` with `docker-compose.yaml` switches the live site to v2.**
-
-- [ ] `v2/.env` on the VPS with all six keys
-- [ ] `docker-buildx` installed on the VPS — the prod build passes `.env` in as a BuildKit secret
-- [ ] Ports 80 and 443 open and DNS pointing at the VPS. Caddy gets and renews the certificate itself
-      into the `caddy_data` volume; `certs/` is no longer used
-- [ ] `caddy_shared` network exists (`docker network ls`). It's `external: true`, so compose won't create it
-- [ ] **`docker ps` before deploying.** The v1 containers (`server`, `my_app`) are named differently from
-      v2's, so compose won't replace them — they'll keep holding 80/443. Symptom: the new Caddy logs look
-      healthy while the browser still talks to the old one
-- [ ] Deploy:
+**This policy has never been enforced anywhere.** The local stack uses HTTP/2 as well, so every earlier
+check (contact form, reCAPTCHA, GA, consent) ran without a CSP. Test locally before deploying:
 
 ```bash
-docker compose up -d --build
-docker ps --format 'table {{.Names}}\t{{.Ports}}'   # mm_dev_server must own 80/443
+docker compose -f local.docker-compose.yaml up -d --force-recreate mm_dev_server
+curl -skI https://app.moss.local/ | grep -i content-security   # must print the policy
 ```
 
-- [ ] Lighthouse against the real domain
-- [ ] Contact form in production (real origin and cert, live reCAPTCHA)
-- [ ] 404 page and CSP console check again — first time either runs against the prerendered build behind
-      the real Caddyfile
+Then run section 1 there: the CSP console check, one test message through the contact form, and the
+consent flow.
+
+Deploy on the VPS. `--force-recreate` matters: `git pull` replaces the Caddyfile with a new file, and a
+single-file bind mount keeps pointing at the old one.
+
+```bash
+git pull && docker compose up -d --force-recreate mm_dev_server
+curl -sI --http2 https://milijan-mosic.dev/ | grep -i content-security   # must print the policy now
+```
+
+### [ ] Still to check in production
+
+- [ ] CSP console check (section 1) once the header fix is live, plus one contact-form message with the
+      policy enforced. The 2026-09-29 contact-form and 404 passes may have run before the fix.
+
+### VPS notes
+
+- `server/Caddyfile` also serves `notes.milijan-mosic.dev` (SilverBullet from the separate `vps-notebook`
+  compose project, reached over `caddy_shared`). The notes live in `/opt/silverbullet/space`, a host bind
+  mount that nothing in this repo touches.
+- The VPS had the apt `caddy` package running as a system service with its default `:80` config. It took
+  port 80, so `mm_dev_server` failed with `bind: address already in use`. It's now
+  `systemctl disable --now caddy`. If that error comes back, run `sudo ss -ltnp 'sport = :80'` first.
 
 **Rollback:** `aa4201a` is the last commit whose compose file and Caddyfile run v1.
 
@@ -101,8 +110,13 @@ docker compose up -d --build
 
 Don't chase these:
 
-- **Lighthouse "Improve image delivery" (6–11 KiB)** and **"Render-blocking requests"** — below the
-  threshold, cost no points.
+- **Lighthouse "Minify JavaScript" / "Reduce unused JavaScript" (54 / 101 KiB)**: that code comes from a
+  browser extension (`chrome-extension://eimadpbc…`, Dark Reader), not the site. Run Lighthouse in a
+  private window for clean numbers.
+- **Lighthouse "Use efficient cache lifetimes" (4 KiB)**: `gtag/js` is Google's file, and Google sets its
+  cache headers.
+- **Lighthouse "Improve image delivery" (6–11 KiB)**, **"Render-blocking requests"** (the 9 KiB CSS) and
+  **"Network dependency tree"**: below the threshold, they cost no points.
 - **`certutil is not available`** in local Caddy logs — it can't install its CA into a browser trust store
   from inside the container.
 - **`stapling OCSP`** warning locally — internally-issued certs have no OCSP responder.

@@ -52,6 +52,11 @@ Neither Docker, Caddy nor a browser exists in the devcontainer. Anything that ne
 Services are `mm_dev_server` (Caddy) and `mm_dev_app` (Node, `expose` 40000 — never publish it with
 `ports`). On start the prod app copies `dist/client` into the `v2_static` volume that Caddy mounts.
 
+On the VPS, `mm_dev_server` is the only thing on 80/443 and also serves `notes.milijan-mosic.dev`
+(SilverBullet, from the separate `vps-notebook` compose project, reached over the external `caddy_shared`
+network). The notes data is a host bind mount at `/opt/silverbullet/space`. The apt `caddy.service` on the
+host is disabled on purpose; it grabs :80.
+
 ## Gotchas
 
 - **SolidStart 2.x has no SSG and no deploy presets**, and its README still documents 1.x. Prerendering and
@@ -60,6 +65,8 @@ Services are `mm_dev_server` (Caddy) and `mm_dev_app` (Node, `expose` 40000 — 
 - **The local stack is a dev stack on purpose**, not a prod replica. Don't "fix" it to match prod.
 - **Never add `Strict-Transport-Security` to `local.Caddyfile`** — with `tls internal` it locks the browser
   out. Otherwise keep the CSP identical in both Caddyfiles.
+- **Header values in a Caddyfile must be one line.** Go's HTTP/2 and HTTP/3 servers silently drop a value
+  containing a newline, and browsers use those protocols (`curl --http1.1` still shows it, which hides the bug).
 - **`VITE_*` keys are inlined at build time.** `.env` is in `.dockerignore`, so the prod image only gets
   them through the `app_env` build secret (needs `docker-buildx`).
 - **Server-only env vars** (`RESEND_API_KEY`, `RECAPTCHA_SECRET_KEY`, `CONTACT_*`) are read only in
