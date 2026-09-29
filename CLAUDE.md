@@ -2,7 +2,8 @@
 
 Personal site of Milijan Mosić, self-hosted on a VPS behind Caddy. **`v2/` (Solid Start 2 + TypeScript +
 Tailwind v4 + Vite 8) is the site.** `src/` is the old Go + templ app, kept only as a rollback path — don't
-edit it. `TESTING.md` is the list of what's still unverified; read it first when resuming work.
+edit it. `TESTING.md` records what was verified, the VPS notes, and known non-issues. Check it before
+chasing a warning.
 
 Security rules live in `.claude/SECURITY.md` (do not modify). Code style basics are in `AI_GUIDELINES.md`.
 

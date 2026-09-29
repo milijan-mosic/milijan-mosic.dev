@@ -1,13 +1,15 @@
-# Remaining verification — v2
+# Verification — v2
 
-What's left before v2 can be considered done. v2 is live, so section 2 applies to the real site.
+**Everything is verified (2026-09-29). Nothing is open.** v2 is live on https://milijan-mosic.dev. What's
+below is the record and the reference for future changes.
 
-**Already verified — don't redo:** typecheck, Prettier, content validation, build + prerender, no secrets in
-`dist/client`, heading hierarchy and landmarks, Lighthouse (locally and in production), the 404 page and
-contact form (locally and in production), the production deploy, the visual comparison with v1, the shader
-(colour, smoothness, crop-on-resize), and the feedback-round spacing and icon-size items. Both Caddyfiles passed
-`caddy validate` before the one-line CSP change; the Caddy container logs will show if the new version
-doesn't parse.
+**Verified:** typecheck, Prettier, content validation, build + prerender, no secrets in `dist/client`,
+heading hierarchy and landmarks, Lighthouse (locally and in production), the 404 page and contact form
+(locally and in production), the production deploy, the CSP (delivered, enforced, no violations on page load
+or through a real contact-form send), consent (denied by default, Accept sets `_ga`, a stored choice
+survives a reload, Reject clears `_ga*`, "Cookie settings" reopens the banner), the visual comparison with
+v1, the shader (colour, smoothness, crop-on-resize), and the feedback-round spacing and icon-size items.
+`local.Caddyfile` has the one-line CSP change but hasn't been started since.
 
 Run locally at <https://app.moss.local> (accept the self-signed certificate warning):
 
@@ -21,70 +23,16 @@ which in practice means the real deploy.
 
 ---
 
-## 1. Functional
+## Production
 
-### [ ] DevTools console — CSP
+**Live on v2 since 2026-09-29.** Lighthouse against the real domain, after the CSP fix: desktop
+100/100/100/100, mobile 99/100/100/100 (FCP 1.2 s, LCP 2.1 s under mobile throttling), no console errors,
+all 17 requests 200.
 
-**Until the header fix in section 2, no policy reached the browser at all, so earlier passes don't count.**
-A CSP block fails **silently**, and the v2 policy differs a lot from v1: `require-trusted-types-for`
-removed, `'unsafe-inline'` in `script-src` and `style-src`, Google origins added for gtag and reCAPTCHA.
-
-Load the page with the console open, then click into the contact form (that's when reCAPTCHA loads).
-Look for `Refused to load…` or `Refused to execute…`.
-
-One gap to watch: `www.gstatic.com` is in `script-src` but not in `img-src` or `style-src`. reCAPTCHA's
-assets _should_ load inside its own iframe, where our policy doesn't apply. If gstatic shows up blocked,
-it's a one-line fix in both Caddyfiles.
-
-**Pass:** no CSP violations, before or after focusing the form.
-
-### [ ] Consent / Consent Mode v2
-
-Use a fresh profile or a private window, since a stored choice hides the banner.
-
-- [ ] Banner appears on first visit
-- [ ] **No `_ga` cookie** before choosing (DevTools ▸ Application ▸ Cookies)
-- [ ] `dataLayer` in the console contains `consent default` with `analytics_storage: denied`
-- [ ] **Accept** → `consent update` fires, `_ga` appears, choice survives a reload
-- [ ] **Reject** → no `_ga`, banner stays dismissed
-- [ ] Footer "Cookie settings" reopens the banner
-
----
-
-## 2. Production
-
-**Live on v2 since 2026-09-29.** Lighthouse against the real domain (reports in the repo root): desktop
-100/100/100/100, mobile 99/100/100/100 (FCP 1.3 s, LCP 2.0 s under mobile throttling), no console errors.
-
-### [ ] CSP header fix: fixed in both Caddyfiles, not yet deployed
-
-Confirmed 2026-09-29: the header arrived over `--http1.1` and was missing over `--http2`. The policy was
-written across several lines, and Go's HTTP/2 and HTTP/3 servers drop a header value that contains a
-newline. Both Caddyfiles now have it on one line, with a comment saying why.
-
-**This policy has never been enforced anywhere.** The local stack uses HTTP/2 as well, so every earlier
-check (contact form, reCAPTCHA, GA, consent) ran without a CSP. Test locally before deploying:
-
-```bash
-docker compose -f local.docker-compose.yaml up -d --force-recreate mm_dev_server
-curl -skI https://app.moss.local/ | grep -i content-security   # must print the policy
-```
-
-Then run section 1 there: the CSP console check, one test message through the contact form, and the
-consent flow.
-
-Deploy on the VPS. `--force-recreate` matters: `git pull` replaces the Caddyfile with a new file, and a
-single-file bind mount keeps pointing at the old one.
-
-```bash
-git pull && docker compose up -d --force-recreate mm_dev_server
-curl -sI --http2 https://milijan-mosic.dev/ | grep -i content-security   # must print the policy now
-```
-
-### [ ] Still to check in production
-
-- [ ] CSP console check (section 1) once the header fix is live, plus one contact-form message with the
-      policy enforced. The 2026-09-29 contact-form and 404 passes may have run before the fix.
+**CSP is now delivered and enforced** (the fix was deployed 2026-09-29). Earlier, the multi-line value was
+dropped over HTTP/2, so no policy had ever been enforced, v1 included. Lighthouse now reads the policy and
+reports only the accepted `'unsafe-inline'` / host-allowlist / Trusted Types warnings. Page load and the
+contact form are clean under it.
 
 ### VPS notes
 
@@ -117,6 +65,17 @@ Don't chase these:
   cache headers.
 - **Lighthouse "Improve image delivery" (6–11 KiB)**, **"Render-blocking requests"** (the 9 KiB CSS) and
   **"Network dependency tree"**: below the threshold, they cost no points.
+- **`requestStorageAccess: Permission denied`** in the console after sending the contact form. It comes
+  from reCAPTCHA's own iframe (`anchor?…&size=invisible`) asking Chrome for its third-party cookies, and
+  Chrome refusing. It isn't a CSP block (those start with `Refused to…`), reCAPTCHA works without the
+  cookies, and nothing on our side can change it.
+- **Firefox: "preloaded with link preload was not used within a few seconds"** for the latin woff2. The
+  preload's attributes match the `@font-face` rule, and Chrome fetches the font once. Firefox reports it
+  on reloads served from cache. It only matters if the Network tab shows the file fetched twice on a first
+  visit.
+- **No `_ga` in Brave, Firefox private windows, or with an ad blocker.** They replace gtag.js with a
+  do-nothing stand-in (tell-tales: `typeof google_tag_manager` is `undefined`, `dataLayer.push` is a
+  `Proxy`, and `gtag/js` is ~3.7 KB over HTTP/1.1 instead of ~530 KB). Test GA in plain Chromium.
 - **`certutil is not available`** in local Caddy logs — it can't install its CA into a browser trust store
   from inside the container.
 - **`stapling OCSP`** warning locally — internally-issued certs have no OCSP responder.
