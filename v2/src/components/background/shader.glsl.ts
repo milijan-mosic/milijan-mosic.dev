@@ -1,4 +1,8 @@
 /**
+ * Pattern: "Monjori" by Mic (http://www.pouet.net/prod.php?which=52761), as
+ * published in the three.js webgl_shader example (three.js is MIT-licensed,
+ * © three.js authors).
+ *
  * The pattern is copied verbatim from src/static/js/shader.js — it is the site's
  * visual identity, so that math must not drift. Three things are added: the
  * declarations three.js used to prepend automatically (precision, attributes),
