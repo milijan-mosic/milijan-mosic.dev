@@ -1,7 +1,7 @@
 # Verification — v2
 
-**Everything is verified (2026-09-29). Nothing is open.** v2 is live on https://milijan-mosic.dev. What's
-below is the record and the reference for future changes.
+**The site is fully verified (2026-09-29).** Only the auto-deploy section has open items. v2 is live on
+https://milijan-mosic.dev. The rest is the record and the reference for future changes.
 
 **Verified:** typecheck, Prettier, content validation, build + prerender, no secrets in `dist/client`,
 heading hierarchy and landmarks, Lighthouse (locally and in production), the 404 page and contact form
@@ -33,6 +33,23 @@ all 17 requests 200.
 dropped over HTTP/2, so no policy had ever been enforced, v1 included. Lighthouse now reads the policy and
 reports only the accepted `'unsafe-inline'` / host-allowlist / Trusted Types warnings. Page load and the
 contact form are clean under it.
+
+### Auto-deploy (GitHub Actions → VPS)
+
+Push to `master` → `.github/workflows/deploy.yml` → `npm run check` → SSH (port 50000) with a key that
+`authorized_keys` pins to `scripts/deploy.sh`. Secrets live in the `production` environment, restricted to
+`master`: `VPS_HOST`, `VPS_PORT`, `VPS_USER`, `VPS_SSH_KEY`, `VPS_KNOWN_HOSTS`.
+
+- [x] Manual **Run workflow** — `check` and `deploy` green, ends with `==> OK: 200 with CSP` (2026-09-29)
+- [ ] **The key only deploys.** From the PC:
+      `ssh -i ~/.ssh/milijan-mosic-deploy -o IdentitiesOnly=yes -p 50000 w1ndw4lk@VPS_HOST ls` must print
+      deploy output, not a file listing. Then delete the private key from the PC.
+- [ ] **A push deploys by itself** — after a green run, `git -C ~/milijan-mosic.dev log -1 --oneline` on the
+      VPS shows the pushed commit
+
+If a run fails: the log names the step. A failed build leaves the old containers serving; a failed health
+check prints the previous commit. `ubuntu-latest` moves to 26.04 between 2026-10-19 and 2026-11-19; if that
+breaks anything, pin `runs-on: ubuntu-24.04`.
 
 ### VPS notes
 
