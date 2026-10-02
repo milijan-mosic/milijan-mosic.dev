@@ -6,7 +6,7 @@ export const Skills: Component = () => (
   <section
     id="skills"
     aria-labelledby="skills-title"
-    class="glass-card p-8 my-16 mx-8 flex flex-col items-center md:w-[400px] lg:w-[550px] xl:w-[1000px]"
+    class="glass-card p-8 my-16 mx-8 flex flex-col items-center md:w-100 lg:w-137.5 xl:w-250"
   >
     <h2 id="skills-title" class="mt-4 mb-8 text-2xl font-bold lg:mb-0">
       {skills.title}
@@ -19,7 +19,7 @@ export const Skills: Component = () => (
             <div class="flex flex-wrap justify-center w-full">
               <For each={group.skills}>
                 {(skill) => (
-                  <div class="flex flex-col items-center my-2 w-1/2 rounded-xl lg:w-[200px] hover:text-white hover:bg-black hover:invert animate">
+                  <div class="flex flex-col items-center my-2 w-1/2 rounded-xl lg:w-50 hover:text-white hover:bg-black hover:invert animate">
                     <div class="flex flex-col justify-center items-center w-16 h-16 text-3xl">
                       {/* The v1 <img> was black artwork flipped white by `invert`.
                           Inline SVG already paints in currentColor, so the class

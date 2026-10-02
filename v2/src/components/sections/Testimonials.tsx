@@ -13,7 +13,7 @@ export const Testimonials: Component = () => (
             // first may carry it, otherwise the anchor target is ambiguous.
             id={index() === 0 ? "testimonials" : undefined}
             aria-labelledby={titleId}
-            class="glass-card p-8 my-8 mx-8 flex flex-col items-center md:w-[400px] lg:w-[550px] xl:w-[1000px]"
+            class="glass-card p-8 my-8 mx-8 flex flex-col items-center md:w-100 lg:w-137.5 xl:w-250"
           >
             <h2 id={titleId} class="mt-4 text-2xl font-bold text-center">
               {group.title}

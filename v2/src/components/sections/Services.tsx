@@ -6,7 +6,7 @@ export const Services: Component = () => (
   <section
     id="services"
     aria-labelledby="services-title"
-    class="glass-card p-8 my-16 mx-8 flex flex-col items-center md:w-[400px] lg:w-[550px] xl:w-[1000px]"
+    class="glass-card p-8 my-16 mx-8 flex flex-col items-center md:w-100 lg:w-137.5 xl:w-250"
   >
     <h2 id="services-title" class="mt-4 text-2xl font-bold text-center">
       {services.title}
@@ -19,7 +19,7 @@ export const Services: Component = () => (
               <Icon name={service.icon} class="w-12 h-12" />
               <h3 class="mt-2 text-xl">{service.title}</h3>
             </div>
-            <div class="mt-4 lg:w-[400px]">
+            <div class="mt-4 lg:w-100">
               <p>{service.paragraph}</p>
             </div>
           </div>
@@ -30,7 +30,7 @@ export const Services: Component = () => (
       <p class="mt-16 mb-8">{services.outro}</p>
       <a
         href={services.action.href}
-        class="p-2 px-8 mb-4 text-lg bg-brand rounded-full border-brand-mid animate border-1 hover:border-white hover:bg-white hover:text-black hover:cursor-pointer"
+        class="p-2 px-8 mb-4 text-lg bg-brand rounded-full border-brand-mid animate border hover:border-white hover:bg-white hover:text-black hover:cursor-pointer"
       >
         {services.action.label}
       </a>

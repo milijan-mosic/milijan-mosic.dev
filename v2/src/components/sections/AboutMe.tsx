@@ -5,7 +5,7 @@ export const AboutMe: Component = () => (
   <section
     id="about-me"
     aria-labelledby="about-me-title"
-    class="glass-card p-8 my-16 mx-8 flex flex-col items-center md:w-[400px] lg:w-[550px] xl:w-[1000px]"
+    class="glass-card p-8 my-16 mx-8 flex flex-col items-center md:w-100 lg:w-137.5 xl:w-250"
   >
     <h2 id="about-me-title" class="mt-4 mb-16 text-2xl font-bold">
       {about.title}

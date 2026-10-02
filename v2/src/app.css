@@ -42,7 +42,7 @@
    are what make the port pixel-identical; do not inline them into components. */
 @layer components {
   .glass-card {
-    @apply overflow-hidden to-transparent rounded-3xl border shadow-xl backdrop-blur-xl outline-none border-white/30 bg-linear-to-br from-white/20;
+    @apply overflow-hidden border shadow-xl outline-none to-transparent rounded-3xl backdrop-blur-xl border-white/30 bg-linear-to-br from-white/20;
   }
 
   .animate {
@@ -50,15 +50,15 @@
   }
 
   .mobile-nav-link {
-    @apply p-4 w-full text-lg font-medium hover:bg-white hover:text-black;
+    @apply w-full p-4 text-lg font-medium hover:bg-white hover:text-black;
   }
 
   .footer-nav-link {
-    @apply flex justify-center items-center m-1 w-12 h-12 text-2xl rounded-xl border-2 invert border-black/35 hover:border-white/35 hover:invert-0 hover:bg-white;
+    @apply flex items-center justify-center w-12 h-12 m-1 text-2xl border-2 rounded-xl invert border-black/35 hover:border-white/35 hover:invert-0 hover:bg-white;
   }
 
   .form-input {
-    @apply p-2 w-full rounded-xl border-2 placeholder-white/50 lg:w-1/2 bg-white/25 border-white/0 focus:outline-none focus:border-white;
+    @apply w-full p-2 border-2 rounded-xl placeholder-white/50 lg:w-1/2 bg-white/25 border-white/0 focus:outline-none focus:border-white;
   }
 }
 

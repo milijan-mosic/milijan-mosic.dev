@@ -8,7 +8,7 @@ const leftLinks = navigation.links.slice(0, half);
 const rightLinks = navigation.links.slice(half);
 
 export const Footer: Component = () => (
-  <footer class="glass-card p-8 pb-4 md:pb-0 lg:pb-8 my-16 mx-8 flex flex-col lg:flex-row items-center md:w-[400px] lg:w-[550px] xl:w-[1000px]">
+  <footer class="glass-card p-8 pb-4 md:pb-0 lg:pb-8 my-16 mx-8 flex flex-col lg:flex-row items-center md:w-100 lg:w-137.5 xl:w-250">
     <div class="flex flex-col w-full">
       <div class="flex flex-col pb-4 items-center w-full text-sm lg:p-0 lg:items-start">
         <p>{site.footer.identity}</p>

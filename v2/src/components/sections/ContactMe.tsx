@@ -10,7 +10,7 @@ import { getRecaptchaToken, loadRecaptcha } from "~/lib/recaptcha";
  * Both states must keep identical geometry, or the button shifts mid-submit.
  */
 const IDLE_BUTTON_CLASS =
-  "p-2 px-8 mt-4 mb-8 text-lg bg-brand rounded-full border-brand-mid animate border-1 hover:border-white hover:bg-white hover:text-black hover:cursor-pointer";
+  "p-2 px-8 mt-4 mb-8 text-lg bg-brand rounded-full border-brand-mid animate border hover:border-white hover:bg-white hover:text-black hover:cursor-pointer";
 const SENDING_BUTTON_CLASS =
   "p-2 px-8 mt-4 mb-8 text-lg text-black bg-yellow-300 rounded-full cursor-not-allowed animate";
 
@@ -59,7 +59,7 @@ export const ContactMe: Component = () => {
     <section
       id="contact-me"
       aria-labelledby="contact-me-title"
-      class="glass-card p-8 my-16 mx-8 flex flex-col items-center md:w-[400px] lg:w-[550px] xl:w-[1000px]"
+      class="glass-card p-8 my-16 mx-8 flex flex-col items-center md:w-100 lg:w-137.5 xl:w-250"
     >
       <h2 id="contact-me-title" class="mt-4 mb-16 text-2xl font-bold">
         {contact.title}

@@ -4,7 +4,7 @@ import { hero } from "~/content";
 export const Hero: Component = () => (
   <section
     aria-labelledby="hero-title"
-    class="glass-card p-8 mt-16 mx-4 flex flex-col lg:flex-row items-center lg:items-stretch md:w-[400px] lg:w-[550px] xl:w-[1000px]"
+    class="glass-card p-8 mt-16 mx-4 flex flex-col lg:flex-row items-center lg:items-stretch md:w-100 lg:w-137.5 xl:w-250"
   >
     <div class="lg:w-1/3">
       <img
@@ -32,13 +32,13 @@ export const Hero: Component = () => (
       <div class="flex justify-center mb-4 lg:mb-0">
         <a
           href={hero.secondaryAction.href}
-          class="flex justify-center items-center p-2 px-4 mr-2 text-lg rounded-full md:px-8 border-1 border-white/35 hover:text-black hover:bg-white animate"
+          class="flex justify-center items-center p-2 px-4 mr-2 text-lg rounded-full md:px-8 border border-white/35 hover:text-black hover:bg-white animate"
         >
           {hero.secondaryAction.label}
         </a>
         <a
           href={hero.primaryAction.href}
-          class="p-2 px-4 ml-2 text-lg bg-brand rounded-full border-brand-mid md:px-8 animate border-1 hover:border-white hover:bg-white hover:text-black hover:cursor-pointer"
+          class="p-2 px-4 ml-2 text-lg bg-brand rounded-full border-brand-mid md:px-8 animate border hover:border-white hover:bg-white hover:text-black hover:cursor-pointer"
         >
           {hero.primaryAction.label}
         </a>
