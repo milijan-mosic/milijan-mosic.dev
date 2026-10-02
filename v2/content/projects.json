@@ -31,24 +31,15 @@
         "Redis",
         "Kafka"
       ],
-      "role": [
-        "Full-Stack Development",
-        "System Architecture",
-        "Authentication & Authorization",
-        "Access Control Systems"
-      ],
+      "role": ["Full-Stack Development", "System Architecture", "Access Control Systems"],
       "thumbnail": "/static/images/projects/recall-taxi.webp"
     },
     {
       "name": "CyberPopUp",
-      "type": "Cybersecurity Talent & Solutions Platform",
+      "type": "Cybersecurity Solutions Platform",
       "description": "A matchmaking platform connecting companies facing cybersecurity challenges with verified security experts. By addressing demand and supply from both sides, the platform streamlines onboarding, discovery, and collaboration, enabling faster and more effective security solutions.",
       "technologies": ["Python", "PostgreSQL", "MinIO", "Docker", "Caddy"],
-      "role": [
-        "Backend Development",
-        "Code Quality & Refactoring",
-        "Authentication & Authorization"
-      ],
+      "role": ["Backend Development", "Code Quality & Refactoring", "Deployment & Maintenance"],
       "thumbnail": "/static/images/projects/cyberpopup.webp"
     }
   ],
